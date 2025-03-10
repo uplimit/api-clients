@@ -7,21 +7,31 @@ jobs:
     steps:
     - uses: actions/checkout@master
   
-    - name: Generate OpenAPI document 
-      run: curl https://uplimit.com/api/organization/v1/schema.yaml > openapi.yaml
-
     - name: Cleanup old client
       run: rm -rf typescript-fetch-client/
 
-    - name: Generate new client
+    - name: Generate new Go Client
       uses: openapi-generators/openapitools-generator-action@v1
       with:
-        generator: typescript-fetch
+        generator: go
+        openapi-url: https://uplimit.com/api/organization/v1/schema.yaml
+
+    - name: Generate new Python Pydantic Client
+      uses: openapi-generators/openapitools-generator-action@v1
+      with:
+        generator: python-pydantic-v1
+        openapi-url: https://uplimit.com/api/organization/v1/schema.yaml
+
+    - name: Generate new Typescript Node Client
+      uses: openapi-generators/openapitools-generator-action@v1
+      with:
+        generator: typescript-node
+        openapi-url: https://uplimit.com/api/organization/v1/schema.yaml
 
     - name: Commit new client
       run: |
         git config --global user.name 'Uplimit Engineering'
         git config --global user.email 'hello@uplimit.com'
-        git add typescript-fetch-client/
+        git add .
         git commit -am "Update clients"
         git push
