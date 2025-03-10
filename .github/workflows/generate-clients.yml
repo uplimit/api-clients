@@ -1,0 +1,27 @@
+name: Generate Clients
+on: workflow_dispatch
+jobs:
+  generate-clients:
+    runs-on: ubuntu-latest
+    name: Generate All Clients
+    steps:
+    - uses: actions/checkout@master
+  
+    - name: Generate OpenAPI document 
+      run: curl https://uplimit.com/api/organization/v1/schema.yaml > openapi.yaml
+
+    - name: Cleanup old client
+      run: rm -rf typescript-fetch-client/
+
+    - name: Generate new client
+      uses: openapi-generators/openapitools-generator-action@v1
+      with:
+        generator: typescript-fetch
+
+    - name: Commit new client
+      run: |
+        git config --global user.name 'Uplimit Engineering'
+        git config --global user.email 'hello@uplimit.com'
+        git add typescript-fetch-client/
+        git commit -am "Update clients"
+        git push
