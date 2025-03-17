@@ -37,5 +37,5 @@ jobs:
         git checkout -b generate-clients
         git add .
         git commit -am "Update clients"
-        git push -f
+        git push -f --set-upstream origin generate-clients
         gh pr create --base main --head generate-clients --title "Update clients" --body "Update clients"
