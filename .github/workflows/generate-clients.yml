@@ -29,9 +29,13 @@ jobs:
         openapi-url: https://uplimit.com/api/organization/v1/schema.yaml
 
     - name: Commit new client
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global user.name 'Uplimit Engineering'
         git config --global user.email 'hello@uplimit.com'
+        git checkout -b generate-clients
         git add .
         git commit -am "Update clients"
-        git push
+        git push -f
+        gh pr create --base main --head generate-clients --title "Update clients" --body "Update clients"
