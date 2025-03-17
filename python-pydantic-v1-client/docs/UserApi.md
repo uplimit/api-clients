@@ -87,6 +87,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The user was created successfully. |  -  |
+**400** | The request is invalid. |  -  |
+**401** | The request is unauthorized. |  -  |
+**404** | One or more of the resources required to fulfill the request were not found. |  -  |
+**405** | The request method is not allowed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -164,6 +168,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The user is enrolled into the session successfully. |  -  |
+**400** | The request is invalid. |  -  |
+**401** | The request is unauthorized. |  -  |
+**404** | One or more of the resources required to fulfill the request were not found. |  -  |
+**405** | The request method is not allowed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -240,6 +248,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Information about the user is returned successfully. |  -  |
+**400** | The request is invalid. |  -  |
+**401** | The request is unauthorized. |  -  |
+**404** | One or more of the resources required to fulfill the request were not found. |  -  |
+**405** | The request method is not allowed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -281,8 +293,8 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.UserApi(api_client)
-    skip = 3.4 # float |  (optional)
-    take = 3.4 # float |  (optional)
+    skip = 56 # int |  (optional)
+    take = 56 # int |  (optional)
 
     try:
         api_response = api_instance.v1_list_active_users_get(skip=skip, take=take)
@@ -298,8 +310,8 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **float**|  | [optional] 
- **take** | **float**|  | [optional] 
+ **skip** | **int**|  | [optional] 
+ **take** | **int**|  | [optional] 
 
 ### Return type
 
@@ -318,6 +330,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The list of active users is returned successfully. |  -  |
+**400** | The request is invalid. |  -  |
+**401** | The request is unauthorized. |  -  |
+**404** | One or more of the resources required to fulfill the request were not found. |  -  |
+**405** | The request method is not allowed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -360,8 +376,8 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.UserApi(api_client)
     uplimit_session_id = 'uplimit_session_id_example' # str | 
-    skip = 3.4 # float |  (optional)
-    take = 3.4 # float |  (optional)
+    skip = 56 # int |  (optional)
+    take = 56 # int |  (optional)
 
     try:
         api_response = api_instance.v1_list_enrollments_in_session_get(uplimit_session_id, skip=skip, take=take)
@@ -378,8 +394,8 @@ with openapi_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uplimit_session_id** | **str**|  | 
- **skip** | **float**|  | [optional] 
- **take** | **float**|  | [optional] 
+ **skip** | **int**|  | [optional] 
+ **take** | **int**|  | [optional] 
 
 ### Return type
 
@@ -398,6 +414,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The list of enrollments in the session is returned successfully. |  -  |
+**400** | The request is invalid. |  -  |
+**401** | The request is unauthorized. |  -  |
+**404** | One or more of the resources required to fulfill the request were not found. |  -  |
+**405** | The request method is not allowed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -439,8 +459,8 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.UserApi(api_client)
-    skip = 3.4 # float |  (optional)
-    take = 3.4 # float |  (optional)
+    skip = 56 # int |  (optional)
+    take = 56 # int |  (optional)
 
     try:
         api_response = api_instance.v1_list_inactive_users_get(skip=skip, take=take)
@@ -456,8 +476,8 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **float**|  | [optional] 
- **take** | **float**|  | [optional] 
+ **skip** | **int**|  | [optional] 
+ **take** | **int**|  | [optional] 
 
 ### Return type
 
@@ -476,6 +496,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The list of inactive users is returned successfully. |  -  |
+**400** | The request is invalid. |  -  |
+**401** | The request is unauthorized. |  -  |
+**404** | One or more of the resources required to fulfill the request were not found. |  -  |
+**405** | The request method is not allowed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -553,6 +577,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The user activation was toggled successfully. |  -  |
+**400** | The request is invalid. |  -  |
+**401** | The request is unauthorized. |  -  |
+**404** | One or more of the resources required to fulfill the request were not found. |  -  |
+**405** | The request method is not allowed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

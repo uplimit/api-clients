@@ -98,8 +98,8 @@ import (
 
 func main() {
 	uplimitSessionId := "uplimitSessionId_example" // string | 
-	skip := float32(8.14) // float32 |  (optional)
-	take := float32(8.14) // float32 |  (optional)
+	skip := int32(56) // int32 |  (optional)
+	take := int32(56) // int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -125,8 +125,8 @@ Other parameters are passed through a pointer to a apiV1ListEnrollmentsInSession
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uplimitSessionId** | **string** |  | 
- **skip** | **float32** |  | 
- **take** | **float32** |  | 
+ **skip** | **int32** |  | 
+ **take** | **int32** |  | 
 
 ### Return type
 
@@ -168,8 +168,8 @@ import (
 
 func main() {
 	uplimitCourseId := "uplimitCourseId_example" // string | 
-	skip := float32(8.14) // float32 |  (optional)
-	take := float32(8.14) // float32 |  (optional)
+	skip := int32(56) // int32 |  (optional)
+	take := int32(56) // int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -195,8 +195,8 @@ Other parameters are passed through a pointer to a apiV1ListSessionsInCourseGetR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uplimitCourseId** | **string** |  | 
- **skip** | **float32** |  | 
- **take** | **float32** |  | 
+ **skip** | **int32** |  | 
+ **take** | **int32** |  | 
 
 ### Return type
 

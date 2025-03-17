@@ -7,7 +7,7 @@ info:
   description: "This API is used to manage organizations within the Uplimit platform.\
     \ For more information, please reach out to your Uplimit Enterprise contact."
   title: Uplimit Organization API
-  version: 2025-03-07
+  version: 2025-03-17
 servers:
 - description: Uplimit
   url: https://uplimit.com/api/organization/
@@ -29,6 +29,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/_v1_CreateUser_post_200_response'
           description: The user was created successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is invalid.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is unauthorized.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: One or more of the resources required to fulfill the request
+            were not found.
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request method is not allowed.
       security:
       - bearerAuth: []
       tags:
@@ -50,6 +75,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/_v1_EnrollUserIntoSession_post_200_response'
           description: The user is enrolled into the session successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is invalid.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is unauthorized.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: One or more of the resources required to fulfill the request
+            were not found.
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request method is not allowed.
       security:
       - bearerAuth: []
       tags:
@@ -78,6 +128,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/_v1_GetUserInformation__emailAddressOrUserId__get_200_response'
           description: Information about the user is returned successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is invalid.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is unauthorized.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: One or more of the resources required to fulfill the request
+            were not found.
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request method is not allowed.
       security:
       - bearerAuth: []
       tags:
@@ -92,14 +167,16 @@ paths:
         name: skip
         required: false
         schema:
-          type: number
+          minimum: 0
+          type: integer
         style: form
       - explode: true
         in: query
         name: take
         required: false
         schema:
-          type: number
+          minimum: 0
+          type: integer
         style: form
       responses:
         "200":
@@ -108,6 +185,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/_v1_ListActiveUsers_get_200_response'
           description: The list of active users is returned successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is invalid.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is unauthorized.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: One or more of the resources required to fulfill the request
+            were not found.
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request method is not allowed.
       security:
       - bearerAuth: []
       tags:
@@ -122,14 +224,16 @@ paths:
         name: skip
         required: false
         schema:
-          type: number
+          minimum: 0
+          type: integer
         style: form
       - explode: true
         in: query
         name: take
         required: false
         schema:
-          type: number
+          minimum: 0
+          type: integer
         style: form
       responses:
         "200":
@@ -138,6 +242,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/_v1_ListActiveUsers_get_200_response'
           description: The list of inactive users is returned successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is invalid.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is unauthorized.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: One or more of the resources required to fulfill the request
+            were not found.
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request method is not allowed.
       security:
       - bearerAuth: []
       tags:
@@ -151,14 +280,16 @@ paths:
         name: skip
         required: false
         schema:
-          type: number
+          minimum: 0
+          type: integer
         style: form
       - explode: true
         in: query
         name: take
         required: false
         schema:
-          type: number
+          minimum: 0
+          type: integer
         style: form
       responses:
         "200":
@@ -167,6 +298,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/_v1_ListCourses_get_200_response'
           description: The list of active users is returned successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is invalid.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is unauthorized.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: One or more of the resources required to fulfill the request
+            were not found.
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request method is not allowed.
       security:
       - bearerAuth: []
       tags:
@@ -181,14 +337,16 @@ paths:
         name: skip
         required: false
         schema:
-          type: number
+          minimum: 0
+          type: integer
         style: form
       - explode: true
         in: query
         name: take
         required: false
         schema:
-          type: number
+          minimum: 0
+          type: integer
         style: form
       - explode: true
         in: query
@@ -204,6 +362,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/_v1_ListEnrollmentsInSession_get_200_response'
           description: The list of enrollments in the session is returned successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is invalid.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is unauthorized.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: One or more of the resources required to fulfill the request
+            were not found.
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request method is not allowed.
       security:
       - bearerAuth: []
       tags:
@@ -219,14 +402,16 @@ paths:
         name: skip
         required: false
         schema:
-          type: number
+          minimum: 0
+          type: integer
         style: form
       - explode: true
         in: query
         name: take
         required: false
         schema:
-          type: number
+          minimum: 0
+          type: integer
         style: form
       - explode: true
         in: query
@@ -242,6 +427,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/_v1_ListSessionsInCourse_get_200_response'
           description: The list of sessions in the course is returned successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is invalid.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is unauthorized.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: One or more of the resources required to fulfill the request
+            were not found.
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request method is not allowed.
       security:
       - bearerAuth: []
       tags:
@@ -263,10 +473,58 @@ paths:
               schema:
                 $ref: '#/components/schemas/_v1_EnrollUserIntoSession_post_200_response'
           description: The user activation was toggled successfully.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is invalid.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request is unauthorized.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: One or more of the resources required to fulfill the request
+            were not found.
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_CreateUser_post_400_response'
+          description: The request method is not allowed.
       security:
       - bearerAuth: []
       tags:
       - User
+  /v1/Healthcheck:
+    get:
+      description: This API allows developers to check the health of the platform
+        and verify that the API key provided is valid.
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_Healthcheck_get_200_response'
+          description: "The platform is up and running, and the API key provided is\
+            \ correct."
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_Healthcheck_get_403_response'
+          description: "The platform is up and running, but the API key provided is\
+            \ incorrect or missing."
+      security:
+      - bearerAuth: []
+      tags:
+      - Platform
 components:
   parameters: {}
   schemas:
@@ -321,19 +579,6 @@ components:
           type: string
       required:
       - emailAddress
-    GetUplimitSessionIdUsingDoceboSessionCodeResponseSchema:
-      properties:
-        uplimitSessionId:
-          type: string
-        name:
-          type: string
-        startsAt:
-          format: date-time
-          type: string
-      required:
-      - name
-      - startsAt
-      - uplimitSessionId
     ToggleUserActivationSchema:
       properties:
         emailAddress:
@@ -516,6 +761,30 @@ components:
       required:
       - sessions
       - totalCount
+    HealthcheckSuccessResponseSchema:
+      properties:
+        success:
+          type: boolean
+        uplimitOrganizationId:
+          description: The Uplimit ID of the organization.
+          type: string
+        uplimitOrganizationName:
+          description: The name of the organization as it appears in Uplimit.
+          type: string
+      required:
+      - success
+      - uplimitOrganizationId
+      - uplimitOrganizationName
+    HealthcheckIncorrectApiKeyResponseSchema:
+      properties:
+        success:
+          type: boolean
+        error:
+          description: The error message.
+          type: string
+      required:
+      - error
+      - success
     _v1_CreateUser_post_request:
       properties:
         emailAddress:
@@ -551,6 +820,15 @@ components:
       required:
       - uplimitSubscriptionEnrollmentId
       - uplimitUserId
+    _v1_CreateUser_post_400_response:
+      example:
+        error: error
+      properties:
+        error:
+          description: The error message.
+          type: string
+      required:
+      - error
     _v1_EnrollUserIntoSession_post_request:
       properties:
         emailAddress:
@@ -834,6 +1112,37 @@ components:
       required:
       - emailAddress
       - setIsActive
+    _v1_Healthcheck_get_200_response:
+      example:
+        uplimitOrganizationName: uplimitOrganizationName
+        success: true
+        uplimitOrganizationId: uplimitOrganizationId
+      properties:
+        success:
+          type: boolean
+        uplimitOrganizationId:
+          description: The Uplimit ID of the organization.
+          type: string
+        uplimitOrganizationName:
+          description: The name of the organization as it appears in Uplimit.
+          type: string
+      required:
+      - success
+      - uplimitOrganizationId
+      - uplimitOrganizationName
+    _v1_Healthcheck_get_403_response:
+      example:
+        success: true
+        error: error
+      properties:
+        success:
+          type: boolean
+        error:
+          description: The error message.
+          type: string
+      required:
+      - error
+      - success
   securitySchemes:
     bearerAuth:
       scheme: bearer
