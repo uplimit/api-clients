@@ -3,7 +3,8 @@ import localVarRequest from 'request';
 export * from './createUserResponseSchema';
 export * from './createUserSchema';
 export * from './enrollUserIntoCourseSchema';
-export * from './getUplimitSessionIdUsingDoceboSessionCodeResponseSchema';
+export * from './healthcheckIncorrectApiKeyResponseSchema';
+export * from './healthcheckSuccessResponseSchema';
 export * from './listActiveUsersResponseSchema';
 export * from './listCoursesResponseSchema';
 export * from './listEnrollmentsInSessionResponseSchema';
@@ -15,10 +16,13 @@ export * from './uplimitSessionInformationSchema';
 export * from './uplimitUserInformationSchema';
 export * from './uplimitUserInformationWithSessionCompletionStatusSchema';
 export * from './v1CreateUserPost200Response';
+export * from './v1CreateUserPost400Response';
 export * from './v1CreateUserPostRequest';
 export * from './v1EnrollUserIntoSessionPost200Response';
 export * from './v1EnrollUserIntoSessionPostRequest';
 export * from './v1GetUserInformationEmailAddressOrUserIdGet200Response';
+export * from './v1HealthcheckGet200Response';
+export * from './v1HealthcheckGet403Response';
 export * from './v1ListActiveUsersGet200Response';
 export * from './v1ListCoursesGet200Response';
 export * from './v1ListCoursesGet200ResponseCoursesInner';
@@ -44,7 +48,8 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 import { CreateUserResponseSchema } from './createUserResponseSchema';
 import { CreateUserSchema } from './createUserSchema';
 import { EnrollUserIntoCourseSchema } from './enrollUserIntoCourseSchema';
-import { GetUplimitSessionIdUsingDoceboSessionCodeResponseSchema } from './getUplimitSessionIdUsingDoceboSessionCodeResponseSchema';
+import { HealthcheckIncorrectApiKeyResponseSchema } from './healthcheckIncorrectApiKeyResponseSchema';
+import { HealthcheckSuccessResponseSchema } from './healthcheckSuccessResponseSchema';
 import { ListActiveUsersResponseSchema } from './listActiveUsersResponseSchema';
 import { ListCoursesResponseSchema } from './listCoursesResponseSchema';
 import { ListEnrollmentsInSessionResponseSchema } from './listEnrollmentsInSessionResponseSchema';
@@ -56,10 +61,13 @@ import { UplimitSessionInformationSchema } from './uplimitSessionInformationSche
 import { UplimitUserInformationSchema } from './uplimitUserInformationSchema';
 import { UplimitUserInformationWithSessionCompletionStatusSchema } from './uplimitUserInformationWithSessionCompletionStatusSchema';
 import { V1CreateUserPost200Response } from './v1CreateUserPost200Response';
+import { V1CreateUserPost400Response } from './v1CreateUserPost400Response';
 import { V1CreateUserPostRequest } from './v1CreateUserPostRequest';
 import { V1EnrollUserIntoSessionPost200Response } from './v1EnrollUserIntoSessionPost200Response';
 import { V1EnrollUserIntoSessionPostRequest } from './v1EnrollUserIntoSessionPostRequest';
 import { V1GetUserInformationEmailAddressOrUserIdGet200Response } from './v1GetUserInformationEmailAddressOrUserIdGet200Response';
+import { V1HealthcheckGet200Response } from './v1HealthcheckGet200Response';
+import { V1HealthcheckGet403Response } from './v1HealthcheckGet403Response';
 import { V1ListActiveUsersGet200Response } from './v1ListActiveUsersGet200Response';
 import { V1ListCoursesGet200Response } from './v1ListCoursesGet200Response';
 import { V1ListCoursesGet200ResponseCoursesInner } from './v1ListCoursesGet200ResponseCoursesInner';
@@ -90,7 +98,8 @@ let typeMap: {[index: string]: any} = {
     "CreateUserResponseSchema": CreateUserResponseSchema,
     "CreateUserSchema": CreateUserSchema,
     "EnrollUserIntoCourseSchema": EnrollUserIntoCourseSchema,
-    "GetUplimitSessionIdUsingDoceboSessionCodeResponseSchema": GetUplimitSessionIdUsingDoceboSessionCodeResponseSchema,
+    "HealthcheckIncorrectApiKeyResponseSchema": HealthcheckIncorrectApiKeyResponseSchema,
+    "HealthcheckSuccessResponseSchema": HealthcheckSuccessResponseSchema,
     "ListActiveUsersResponseSchema": ListActiveUsersResponseSchema,
     "ListCoursesResponseSchema": ListCoursesResponseSchema,
     "ListEnrollmentsInSessionResponseSchema": ListEnrollmentsInSessionResponseSchema,
@@ -102,10 +111,13 @@ let typeMap: {[index: string]: any} = {
     "UplimitUserInformationSchema": UplimitUserInformationSchema,
     "UplimitUserInformationWithSessionCompletionStatusSchema": UplimitUserInformationWithSessionCompletionStatusSchema,
     "V1CreateUserPost200Response": V1CreateUserPost200Response,
+    "V1CreateUserPost400Response": V1CreateUserPost400Response,
     "V1CreateUserPostRequest": V1CreateUserPostRequest,
     "V1EnrollUserIntoSessionPost200Response": V1EnrollUserIntoSessionPost200Response,
     "V1EnrollUserIntoSessionPostRequest": V1EnrollUserIntoSessionPostRequest,
     "V1GetUserInformationEmailAddressOrUserIdGet200Response": V1GetUserInformationEmailAddressOrUserIdGet200Response,
+    "V1HealthcheckGet200Response": V1HealthcheckGet200Response,
+    "V1HealthcheckGet403Response": V1HealthcheckGet403Response,
     "V1ListActiveUsersGet200Response": V1ListActiveUsersGet200Response,
     "V1ListCoursesGet200Response": V1ListCoursesGet200Response,
     "V1ListCoursesGet200ResponseCoursesInner": V1ListCoursesGet200ResponseCoursesInner,

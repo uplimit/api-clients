@@ -2,6 +2,8 @@ export * from './courseApi';
 import { CourseApi } from './courseApi';
 export * from './enrollmentApi';
 import { EnrollmentApi } from './enrollmentApi';
+export * from './platformApi';
+import { PlatformApi } from './platformApi';
 export * from './sessionApi';
 import { SessionApi } from './sessionApi';
 export * from './userApi';
@@ -17,4 +19,4 @@ export class HttpError extends Error {
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [CourseApi, EnrollmentApi, SessionApi, UserApi];
+export const APIS = [CourseApi, EnrollmentApi, PlatformApi, SessionApi, UserApi];

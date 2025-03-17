@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-03-07
+API version: 2025-03-17
 Contact: hello@uplimit.com
 */
 
@@ -26,16 +26,16 @@ type CourseAPIService service
 type ApiV1ListCoursesGetRequest struct {
 	ctx context.Context
 	ApiService *CourseAPIService
-	skip *float32
-	take *float32
+	skip *int32
+	take *int32
 }
 
-func (r ApiV1ListCoursesGetRequest) Skip(skip float32) ApiV1ListCoursesGetRequest {
+func (r ApiV1ListCoursesGetRequest) Skip(skip int32) ApiV1ListCoursesGetRequest {
 	r.skip = &skip
 	return r
 }
 
-func (r ApiV1ListCoursesGetRequest) Take(take float32) ApiV1ListCoursesGetRequest {
+func (r ApiV1ListCoursesGetRequest) Take(take int32) ApiV1ListCoursesGetRequest {
 	r.take = &take
 	return r
 }
@@ -125,6 +125,49 @@ func (a *CourseAPIService) V1ListCoursesGetExecute(r ApiV1ListCoursesGetRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v V1CreateUserPost400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v V1CreateUserPost400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v V1CreateUserPost400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 405 {
+			var v V1CreateUserPost400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -144,8 +187,8 @@ type ApiV1ListSessionsInCourseGetRequest struct {
 	ctx context.Context
 	ApiService *CourseAPIService
 	uplimitCourseId *string
-	skip *float32
-	take *float32
+	skip *int32
+	take *int32
 }
 
 func (r ApiV1ListSessionsInCourseGetRequest) UplimitCourseId(uplimitCourseId string) ApiV1ListSessionsInCourseGetRequest {
@@ -153,12 +196,12 @@ func (r ApiV1ListSessionsInCourseGetRequest) UplimitCourseId(uplimitCourseId str
 	return r
 }
 
-func (r ApiV1ListSessionsInCourseGetRequest) Skip(skip float32) ApiV1ListSessionsInCourseGetRequest {
+func (r ApiV1ListSessionsInCourseGetRequest) Skip(skip int32) ApiV1ListSessionsInCourseGetRequest {
 	r.skip = &skip
 	return r
 }
 
-func (r ApiV1ListSessionsInCourseGetRequest) Take(take float32) ApiV1ListSessionsInCourseGetRequest {
+func (r ApiV1ListSessionsInCourseGetRequest) Take(take int32) ApiV1ListSessionsInCourseGetRequest {
 	r.take = &take
 	return r
 }
@@ -251,6 +294,49 @@ func (a *CourseAPIService) V1ListSessionsInCourseGetExecute(r ApiV1ListSessionsI
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v V1CreateUserPost400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v V1CreateUserPost400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v V1CreateUserPost400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 405 {
+			var v V1CreateUserPost400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

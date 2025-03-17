@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-03-07
+API version: 2025-03-17
 Contact: hello@uplimit.com
 */
 
@@ -42,7 +42,7 @@ var (
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
 
-// APIClient manages communication with the Uplimit Organization API API v2025-03-07
+// APIClient manages communication with the Uplimit Organization API API v2025-03-17
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -53,6 +53,8 @@ type APIClient struct {
 	CourseAPI *CourseAPIService
 
 	EnrollmentAPI *EnrollmentAPIService
+
+	PlatformAPI *PlatformAPIService
 
 	SessionAPI *SessionAPIService
 
@@ -77,6 +79,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.CourseAPI = (*CourseAPIService)(&c.common)
 	c.EnrollmentAPI = (*EnrollmentAPIService)(&c.common)
+	c.PlatformAPI = (*PlatformAPIService)(&c.common)
 	c.SessionAPI = (*SessionAPIService)(&c.common)
 	c.UserAPI = (*UserAPIService)(&c.common)
 
