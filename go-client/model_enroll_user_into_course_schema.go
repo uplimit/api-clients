@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-03-17
+API version: 2025-08-11
 Contact: hello@uplimit.com
 */
 
@@ -24,11 +24,11 @@ var _ MappedNullable = &EnrollUserIntoCourseSchema{}
 type EnrollUserIntoCourseSchema struct {
 	// The email address of the user.
 	EmailAddress string `json:"emailAddress"`
-	// The ID of the session to enroll the user into. You must provide either this or uplimitSessionId.
-	SessionId *string `json:"sessionId,omitempty"`
-	// Internal ID to identify the session across the Uplimit platform.
-	UplimitSessionId *string `json:"uplimitSessionId,omitempty"`
-	// Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group.
+	// Internal ID to identify the course across the Uplimit platform.
+	UplimitCourseId string `json:"uplimitCourseId"`
+	// The policy to decide which session to enroll a user into when enrolling the user into a course.
+	UplimitEnrollUserIntoCourseSessionSelectionPolicy string `json:"uplimitEnrollUserIntoCourseSessionSelectionPolicy"`
+	// Internal ID to identify the \"group\" the user belongs to within your organization. Leaving this blank will enroll the user into the default group.
 	SubscriptionCommitmentId *string `json:"subscriptionCommitmentId,omitempty"`
 }
 
@@ -38,9 +38,11 @@ type _EnrollUserIntoCourseSchema EnrollUserIntoCourseSchema
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnrollUserIntoCourseSchema(emailAddress string) *EnrollUserIntoCourseSchema {
+func NewEnrollUserIntoCourseSchema(emailAddress string, uplimitCourseId string, uplimitEnrollUserIntoCourseSessionSelectionPolicy string) *EnrollUserIntoCourseSchema {
 	this := EnrollUserIntoCourseSchema{}
 	this.EmailAddress = emailAddress
+	this.UplimitCourseId = uplimitCourseId
+	this.UplimitEnrollUserIntoCourseSessionSelectionPolicy = uplimitEnrollUserIntoCourseSessionSelectionPolicy
 	return &this
 }
 
@@ -76,68 +78,52 @@ func (o *EnrollUserIntoCourseSchema) SetEmailAddress(v string) {
 	o.EmailAddress = v
 }
 
-// GetSessionId returns the SessionId field value if set, zero value otherwise.
-func (o *EnrollUserIntoCourseSchema) GetSessionId() string {
-	if o == nil || IsNil(o.SessionId) {
+// GetUplimitCourseId returns the UplimitCourseId field value
+func (o *EnrollUserIntoCourseSchema) GetUplimitCourseId() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SessionId
+
+	return o.UplimitCourseId
 }
 
-// GetSessionIdOk returns a tuple with the SessionId field value if set, nil otherwise
+// GetUplimitCourseIdOk returns a tuple with the UplimitCourseId field value
 // and a boolean to check if the value has been set.
-func (o *EnrollUserIntoCourseSchema) GetSessionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SessionId) {
+func (o *EnrollUserIntoCourseSchema) GetUplimitCourseIdOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SessionId, true
+	return &o.UplimitCourseId, true
 }
 
-// HasSessionId returns a boolean if a field has been set.
-func (o *EnrollUserIntoCourseSchema) HasSessionId() bool {
-	if o != nil && !IsNil(o.SessionId) {
-		return true
-	}
-
-	return false
+// SetUplimitCourseId sets field value
+func (o *EnrollUserIntoCourseSchema) SetUplimitCourseId(v string) {
+	o.UplimitCourseId = v
 }
 
-// SetSessionId gets a reference to the given string and assigns it to the SessionId field.
-func (o *EnrollUserIntoCourseSchema) SetSessionId(v string) {
-	o.SessionId = &v
-}
-
-// GetUplimitSessionId returns the UplimitSessionId field value if set, zero value otherwise.
-func (o *EnrollUserIntoCourseSchema) GetUplimitSessionId() string {
-	if o == nil || IsNil(o.UplimitSessionId) {
+// GetUplimitEnrollUserIntoCourseSessionSelectionPolicy returns the UplimitEnrollUserIntoCourseSessionSelectionPolicy field value
+func (o *EnrollUserIntoCourseSchema) GetUplimitEnrollUserIntoCourseSessionSelectionPolicy() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.UplimitSessionId
+
+	return o.UplimitEnrollUserIntoCourseSessionSelectionPolicy
 }
 
-// GetUplimitSessionIdOk returns a tuple with the UplimitSessionId field value if set, nil otherwise
+// GetUplimitEnrollUserIntoCourseSessionSelectionPolicyOk returns a tuple with the UplimitEnrollUserIntoCourseSessionSelectionPolicy field value
 // and a boolean to check if the value has been set.
-func (o *EnrollUserIntoCourseSchema) GetUplimitSessionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.UplimitSessionId) {
+func (o *EnrollUserIntoCourseSchema) GetUplimitEnrollUserIntoCourseSessionSelectionPolicyOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UplimitSessionId, true
+	return &o.UplimitEnrollUserIntoCourseSessionSelectionPolicy, true
 }
 
-// HasUplimitSessionId returns a boolean if a field has been set.
-func (o *EnrollUserIntoCourseSchema) HasUplimitSessionId() bool {
-	if o != nil && !IsNil(o.UplimitSessionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetUplimitSessionId gets a reference to the given string and assigns it to the UplimitSessionId field.
-func (o *EnrollUserIntoCourseSchema) SetUplimitSessionId(v string) {
-	o.UplimitSessionId = &v
+// SetUplimitEnrollUserIntoCourseSessionSelectionPolicy sets field value
+func (o *EnrollUserIntoCourseSchema) SetUplimitEnrollUserIntoCourseSessionSelectionPolicy(v string) {
+	o.UplimitEnrollUserIntoCourseSessionSelectionPolicy = v
 }
 
 // GetSubscriptionCommitmentId returns the SubscriptionCommitmentId field value if set, zero value otherwise.
@@ -183,12 +169,8 @@ func (o EnrollUserIntoCourseSchema) MarshalJSON() ([]byte, error) {
 func (o EnrollUserIntoCourseSchema) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["emailAddress"] = o.EmailAddress
-	if !IsNil(o.SessionId) {
-		toSerialize["sessionId"] = o.SessionId
-	}
-	if !IsNil(o.UplimitSessionId) {
-		toSerialize["uplimitSessionId"] = o.UplimitSessionId
-	}
+	toSerialize["uplimitCourseId"] = o.UplimitCourseId
+	toSerialize["uplimitEnrollUserIntoCourseSessionSelectionPolicy"] = o.UplimitEnrollUserIntoCourseSessionSelectionPolicy
 	if !IsNil(o.SubscriptionCommitmentId) {
 		toSerialize["subscriptionCommitmentId"] = o.SubscriptionCommitmentId
 	}
@@ -201,6 +183,8 @@ func (o *EnrollUserIntoCourseSchema) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"emailAddress",
+		"uplimitCourseId",
+		"uplimitEnrollUserIntoCourseSessionSelectionPolicy",
 	}
 
 	allProperties := make(map[string]interface{})

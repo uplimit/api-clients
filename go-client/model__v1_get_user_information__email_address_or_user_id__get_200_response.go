@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-03-17
+API version: 2025-08-11
 Contact: hello@uplimit.com
 */
 
@@ -34,8 +34,10 @@ type V1GetUserInformationEmailAddressOrUserIdGet200Response struct {
 	UserHasValidSubscriptionEnrollment bool `json:"userHasValidSubscriptionEnrollment"`
 	// Internal ID to identify the user's membership within your organization on Uplimit.
 	UplimitSubscriptionEnrollmentId string `json:"uplimitSubscriptionEnrollmentId"`
-	// Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group.
+	// Internal ID to identify the \"group\" the user belongs to within your organization. Leaving this blank will enroll the user into the default group.
 	UplimitSubscriptionCommitmentId string `json:"uplimitSubscriptionCommitmentId"`
+	// All the active subscription commitment ids for this user within this organization.
+	UplimitActiveSubscriptionCommitmentIds []string `json:"uplimitActiveSubscriptionCommitmentIds"`
 	// Internal ID to identify the user across the Uplimit platform.
 	UplimitUserId string `json:"uplimitUserId"`
 }
@@ -46,7 +48,7 @@ type _V1GetUserInformationEmailAddressOrUserIdGet200Response V1GetUserInformatio
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV1GetUserInformationEmailAddressOrUserIdGet200Response(emailAddress string, firstName string, lastName string, userAccountIsActive bool, userHasValidSubscriptionEnrollment bool, uplimitSubscriptionEnrollmentId string, uplimitSubscriptionCommitmentId string, uplimitUserId string) *V1GetUserInformationEmailAddressOrUserIdGet200Response {
+func NewV1GetUserInformationEmailAddressOrUserIdGet200Response(emailAddress string, firstName string, lastName string, userAccountIsActive bool, userHasValidSubscriptionEnrollment bool, uplimitSubscriptionEnrollmentId string, uplimitSubscriptionCommitmentId string, uplimitActiveSubscriptionCommitmentIds []string, uplimitUserId string) *V1GetUserInformationEmailAddressOrUserIdGet200Response {
 	this := V1GetUserInformationEmailAddressOrUserIdGet200Response{}
 	this.EmailAddress = emailAddress
 	this.FirstName = firstName
@@ -55,6 +57,7 @@ func NewV1GetUserInformationEmailAddressOrUserIdGet200Response(emailAddress stri
 	this.UserHasValidSubscriptionEnrollment = userHasValidSubscriptionEnrollment
 	this.UplimitSubscriptionEnrollmentId = uplimitSubscriptionEnrollmentId
 	this.UplimitSubscriptionCommitmentId = uplimitSubscriptionCommitmentId
+	this.UplimitActiveSubscriptionCommitmentIds = uplimitActiveSubscriptionCommitmentIds
 	this.UplimitUserId = uplimitUserId
 	return &this
 }
@@ -235,6 +238,30 @@ func (o *V1GetUserInformationEmailAddressOrUserIdGet200Response) SetUplimitSubsc
 	o.UplimitSubscriptionCommitmentId = v
 }
 
+// GetUplimitActiveSubscriptionCommitmentIds returns the UplimitActiveSubscriptionCommitmentIds field value
+func (o *V1GetUserInformationEmailAddressOrUserIdGet200Response) GetUplimitActiveSubscriptionCommitmentIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.UplimitActiveSubscriptionCommitmentIds
+}
+
+// GetUplimitActiveSubscriptionCommitmentIdsOk returns a tuple with the UplimitActiveSubscriptionCommitmentIds field value
+// and a boolean to check if the value has been set.
+func (o *V1GetUserInformationEmailAddressOrUserIdGet200Response) GetUplimitActiveSubscriptionCommitmentIdsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UplimitActiveSubscriptionCommitmentIds, true
+}
+
+// SetUplimitActiveSubscriptionCommitmentIds sets field value
+func (o *V1GetUserInformationEmailAddressOrUserIdGet200Response) SetUplimitActiveSubscriptionCommitmentIds(v []string) {
+	o.UplimitActiveSubscriptionCommitmentIds = v
+}
+
 // GetUplimitUserId returns the UplimitUserId field value
 func (o *V1GetUserInformationEmailAddressOrUserIdGet200Response) GetUplimitUserId() string {
 	if o == nil {
@@ -276,6 +303,7 @@ func (o V1GetUserInformationEmailAddressOrUserIdGet200Response) ToMap() (map[str
 	toSerialize["userHasValidSubscriptionEnrollment"] = o.UserHasValidSubscriptionEnrollment
 	toSerialize["uplimitSubscriptionEnrollmentId"] = o.UplimitSubscriptionEnrollmentId
 	toSerialize["uplimitSubscriptionCommitmentId"] = o.UplimitSubscriptionCommitmentId
+	toSerialize["uplimitActiveSubscriptionCommitmentIds"] = o.UplimitActiveSubscriptionCommitmentIds
 	toSerialize["uplimitUserId"] = o.UplimitUserId
 	return toSerialize, nil
 }
@@ -292,6 +320,7 @@ func (o *V1GetUserInformationEmailAddressOrUserIdGet200Response) UnmarshalJSON(d
 		"userHasValidSubscriptionEnrollment",
 		"uplimitSubscriptionEnrollmentId",
 		"uplimitSubscriptionCommitmentId",
+		"uplimitActiveSubscriptionCommitmentIds",
 		"uplimitUserId",
 	}
 

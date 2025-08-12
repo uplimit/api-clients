@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email_address** | **str** | The email address of the user. | 
 **set_is_active** | **bool** | Whether to set the user as active or inactive. | 
+**subscription_commitment_id** | **str** | (optional) The subscription commitment id to target. If not provided, the user will be activated on the default subscription commitment, or deactivated across all their subscription commitments. | [optional] 
+**do_not_send_welcome_email** | **bool** | (optional) Whether to send the welcome email to the user when reactivating them. If not provided, the welcome email will be sent. This option is ignored when deactivating the user. | [optional] 
 
 ## Example
 

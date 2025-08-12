@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-03-17
+API version: 2025-08-11
 Contact: hello@uplimit.com
 */
 
@@ -28,8 +28,10 @@ type CreateUserSchema struct {
 	FirstName string `json:"firstName"`
 	// The last name of the user.
 	LastName string `json:"lastName"`
-	// Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group.
+	// Internal ID to identify the \"group\" the user belongs to within your organization. Leaving this blank will enroll the user into the default group.
 	SubscriptionCommitmentId *string `json:"subscriptionCommitmentId,omitempty"`
+	// Whether to send the welcome email to the user. If not provided, the welcome email will be sent.
+	DoNotSendWelcomeEmail *bool `json:"doNotSendWelcomeEmail,omitempty"`
 }
 
 type _CreateUserSchema CreateUserSchema
@@ -158,6 +160,38 @@ func (o *CreateUserSchema) SetSubscriptionCommitmentId(v string) {
 	o.SubscriptionCommitmentId = &v
 }
 
+// GetDoNotSendWelcomeEmail returns the DoNotSendWelcomeEmail field value if set, zero value otherwise.
+func (o *CreateUserSchema) GetDoNotSendWelcomeEmail() bool {
+	if o == nil || IsNil(o.DoNotSendWelcomeEmail) {
+		var ret bool
+		return ret
+	}
+	return *o.DoNotSendWelcomeEmail
+}
+
+// GetDoNotSendWelcomeEmailOk returns a tuple with the DoNotSendWelcomeEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUserSchema) GetDoNotSendWelcomeEmailOk() (*bool, bool) {
+	if o == nil || IsNil(o.DoNotSendWelcomeEmail) {
+		return nil, false
+	}
+	return o.DoNotSendWelcomeEmail, true
+}
+
+// HasDoNotSendWelcomeEmail returns a boolean if a field has been set.
+func (o *CreateUserSchema) HasDoNotSendWelcomeEmail() bool {
+	if o != nil && !IsNil(o.DoNotSendWelcomeEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetDoNotSendWelcomeEmail gets a reference to the given bool and assigns it to the DoNotSendWelcomeEmail field.
+func (o *CreateUserSchema) SetDoNotSendWelcomeEmail(v bool) {
+	o.DoNotSendWelcomeEmail = &v
+}
+
 func (o CreateUserSchema) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -173,6 +207,9 @@ func (o CreateUserSchema) ToMap() (map[string]interface{}, error) {
 	toSerialize["lastName"] = o.LastName
 	if !IsNil(o.SubscriptionCommitmentId) {
 		toSerialize["subscriptionCommitmentId"] = o.SubscriptionCommitmentId
+	}
+	if !IsNil(o.DoNotSendWelcomeEmail) {
+		toSerialize["doNotSendWelcomeEmail"] = o.DoNotSendWelcomeEmail
 	}
 	return toSerialize, nil
 }

@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-03-17
+API version: 2025-08-11
 Contact: hello@uplimit.com
 */
 
@@ -28,7 +28,7 @@ type V1EnrollUserIntoSessionPostRequest struct {
 	SessionId *string `json:"sessionId,omitempty"`
 	// Internal ID to identify the session across the Uplimit platform.
 	UplimitSessionId *string `json:"uplimitSessionId,omitempty"`
-	// Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group.
+	// Internal ID to identify the \"group\" the user belongs to within your organization. Leaving this blank will enroll the user into the default group.
 	SubscriptionCommitmentId *string `json:"subscriptionCommitmentId,omitempty"`
 }
 

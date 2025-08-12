@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-03-17
+API version: 2025-08-11
 Contact: hello@uplimit.com
 */
 
@@ -29,6 +29,8 @@ type UplimitSessionInformationSchema struct {
 	Name string `json:"name"`
 	// The start date of the session.
 	StartsAt time.Time `json:"startsAt"`
+	// Whether the session allows enrollments
+	EnrollmentEnabled bool `json:"enrollmentEnabled"`
 }
 
 type _UplimitSessionInformationSchema UplimitSessionInformationSchema
@@ -37,11 +39,12 @@ type _UplimitSessionInformationSchema UplimitSessionInformationSchema
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUplimitSessionInformationSchema(uplimitSessionId string, name string, startsAt time.Time) *UplimitSessionInformationSchema {
+func NewUplimitSessionInformationSchema(uplimitSessionId string, name string, startsAt time.Time, enrollmentEnabled bool) *UplimitSessionInformationSchema {
 	this := UplimitSessionInformationSchema{}
 	this.UplimitSessionId = uplimitSessionId
 	this.Name = name
 	this.StartsAt = startsAt
+	this.EnrollmentEnabled = enrollmentEnabled
 	return &this
 }
 
@@ -125,6 +128,30 @@ func (o *UplimitSessionInformationSchema) SetStartsAt(v time.Time) {
 	o.StartsAt = v
 }
 
+// GetEnrollmentEnabled returns the EnrollmentEnabled field value
+func (o *UplimitSessionInformationSchema) GetEnrollmentEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.EnrollmentEnabled
+}
+
+// GetEnrollmentEnabledOk returns a tuple with the EnrollmentEnabled field value
+// and a boolean to check if the value has been set.
+func (o *UplimitSessionInformationSchema) GetEnrollmentEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EnrollmentEnabled, true
+}
+
+// SetEnrollmentEnabled sets field value
+func (o *UplimitSessionInformationSchema) SetEnrollmentEnabled(v bool) {
+	o.EnrollmentEnabled = v
+}
+
 func (o UplimitSessionInformationSchema) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -138,6 +165,7 @@ func (o UplimitSessionInformationSchema) ToMap() (map[string]interface{}, error)
 	toSerialize["uplimitSessionId"] = o.UplimitSessionId
 	toSerialize["name"] = o.Name
 	toSerialize["startsAt"] = o.StartsAt
+	toSerialize["enrollmentEnabled"] = o.EnrollmentEnabled
 	return toSerialize, nil
 }
 
@@ -149,6 +177,7 @@ func (o *UplimitSessionInformationSchema) UnmarshalJSON(data []byte) (err error)
 		"uplimitSessionId",
 		"name",
 		"startsAt",
+		"enrollmentEnabled",
 	}
 
 	allProperties := make(map[string]interface{})

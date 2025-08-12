@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 **email_address** | **str** | The email address of the user. | 
 **first_name** | **str** | The first name of the user. | 
 **last_name** | **str** | The last name of the user. | 
-**subscription_commitment_id** | **str** | Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | [optional] 
+**subscription_commitment_id** | **str** | Internal ID to identify the \&quot;group\&quot; the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | [optional] 
+**do_not_send_welcome_email** | **bool** | Whether to send the welcome email to the user. If not provided, the welcome email will be sent. | [optional] 
 
 ## Example
 

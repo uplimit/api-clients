@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-03-17
+API version: 2025-08-11
 Contact: hello@uplimit.com
 */
 
@@ -34,8 +34,10 @@ type UplimitUserInformationWithSessionCompletionStatusSchema struct {
 	UserHasValidSubscriptionEnrollment bool `json:"userHasValidSubscriptionEnrollment"`
 	// Internal ID to identify the user's membership within your organization on Uplimit.
 	UplimitSubscriptionEnrollmentId string `json:"uplimitSubscriptionEnrollmentId"`
-	// Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group.
+	// Internal ID to identify the \"group\" the user belongs to within your organization. Leaving this blank will enroll the user into the default group.
 	UplimitSubscriptionCommitmentId string `json:"uplimitSubscriptionCommitmentId"`
+	// All the active subscription commitment ids for this user within this organization.
+	UplimitActiveSubscriptionCommitmentIds []string `json:"uplimitActiveSubscriptionCommitmentIds"`
 	// Internal ID to identify the user across the Uplimit platform.
 	UplimitUserId string `json:"uplimitUserId"`
 	// Whether the user has completed the session according to pre-defined completion criteria.
@@ -48,7 +50,7 @@ type _UplimitUserInformationWithSessionCompletionStatusSchema UplimitUserInforma
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUplimitUserInformationWithSessionCompletionStatusSchema(emailAddress string, firstName string, lastName string, userAccountIsActive bool, userHasValidSubscriptionEnrollment bool, uplimitSubscriptionEnrollmentId string, uplimitSubscriptionCommitmentId string, uplimitUserId string, sessionCompletionStatus string) *UplimitUserInformationWithSessionCompletionStatusSchema {
+func NewUplimitUserInformationWithSessionCompletionStatusSchema(emailAddress string, firstName string, lastName string, userAccountIsActive bool, userHasValidSubscriptionEnrollment bool, uplimitSubscriptionEnrollmentId string, uplimitSubscriptionCommitmentId string, uplimitActiveSubscriptionCommitmentIds []string, uplimitUserId string, sessionCompletionStatus string) *UplimitUserInformationWithSessionCompletionStatusSchema {
 	this := UplimitUserInformationWithSessionCompletionStatusSchema{}
 	this.EmailAddress = emailAddress
 	this.FirstName = firstName
@@ -57,6 +59,7 @@ func NewUplimitUserInformationWithSessionCompletionStatusSchema(emailAddress str
 	this.UserHasValidSubscriptionEnrollment = userHasValidSubscriptionEnrollment
 	this.UplimitSubscriptionEnrollmentId = uplimitSubscriptionEnrollmentId
 	this.UplimitSubscriptionCommitmentId = uplimitSubscriptionCommitmentId
+	this.UplimitActiveSubscriptionCommitmentIds = uplimitActiveSubscriptionCommitmentIds
 	this.UplimitUserId = uplimitUserId
 	this.SessionCompletionStatus = sessionCompletionStatus
 	return &this
@@ -238,6 +241,30 @@ func (o *UplimitUserInformationWithSessionCompletionStatusSchema) SetUplimitSubs
 	o.UplimitSubscriptionCommitmentId = v
 }
 
+// GetUplimitActiveSubscriptionCommitmentIds returns the UplimitActiveSubscriptionCommitmentIds field value
+func (o *UplimitUserInformationWithSessionCompletionStatusSchema) GetUplimitActiveSubscriptionCommitmentIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.UplimitActiveSubscriptionCommitmentIds
+}
+
+// GetUplimitActiveSubscriptionCommitmentIdsOk returns a tuple with the UplimitActiveSubscriptionCommitmentIds field value
+// and a boolean to check if the value has been set.
+func (o *UplimitUserInformationWithSessionCompletionStatusSchema) GetUplimitActiveSubscriptionCommitmentIdsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UplimitActiveSubscriptionCommitmentIds, true
+}
+
+// SetUplimitActiveSubscriptionCommitmentIds sets field value
+func (o *UplimitUserInformationWithSessionCompletionStatusSchema) SetUplimitActiveSubscriptionCommitmentIds(v []string) {
+	o.UplimitActiveSubscriptionCommitmentIds = v
+}
+
 // GetUplimitUserId returns the UplimitUserId field value
 func (o *UplimitUserInformationWithSessionCompletionStatusSchema) GetUplimitUserId() string {
 	if o == nil {
@@ -303,6 +330,7 @@ func (o UplimitUserInformationWithSessionCompletionStatusSchema) ToMap() (map[st
 	toSerialize["userHasValidSubscriptionEnrollment"] = o.UserHasValidSubscriptionEnrollment
 	toSerialize["uplimitSubscriptionEnrollmentId"] = o.UplimitSubscriptionEnrollmentId
 	toSerialize["uplimitSubscriptionCommitmentId"] = o.UplimitSubscriptionCommitmentId
+	toSerialize["uplimitActiveSubscriptionCommitmentIds"] = o.UplimitActiveSubscriptionCommitmentIds
 	toSerialize["uplimitUserId"] = o.UplimitUserId
 	toSerialize["sessionCompletionStatus"] = o.SessionCompletionStatus
 	return toSerialize, nil
@@ -320,6 +348,7 @@ func (o *UplimitUserInformationWithSessionCompletionStatusSchema) UnmarshalJSON(
 		"userHasValidSubscriptionEnrollment",
 		"uplimitSubscriptionEnrollmentId",
 		"uplimitSubscriptionCommitmentId",
+		"uplimitActiveSubscriptionCommitmentIds",
 		"uplimitUserId",
 		"sessionCompletionStatus",
 	}
