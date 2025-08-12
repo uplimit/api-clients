@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 **EmailAddress** | **string** | The email address of the user. | 
 **FirstName** | **string** | The first name of the user. | 
 **LastName** | **string** | The last name of the user. | 
-**SubscriptionCommitmentId** | Pointer to **string** | Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | [optional] 
+**SubscriptionCommitmentId** | Pointer to **string** | Internal ID to identify the \&quot;group\&quot; the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | [optional] 
+**DoNotSendWelcomeEmail** | Pointer to **bool** | Whether to send the welcome email to the user. If not provided, the welcome email will be sent. | [optional] 
 
 ## Methods
 
@@ -112,6 +113,31 @@ SetSubscriptionCommitmentId sets SubscriptionCommitmentId field to given value.
 `func (o *CreateUserSchema) HasSubscriptionCommitmentId() bool`
 
 HasSubscriptionCommitmentId returns a boolean if a field has been set.
+
+### GetDoNotSendWelcomeEmail
+
+`func (o *CreateUserSchema) GetDoNotSendWelcomeEmail() bool`
+
+GetDoNotSendWelcomeEmail returns the DoNotSendWelcomeEmail field if non-nil, zero value otherwise.
+
+### GetDoNotSendWelcomeEmailOk
+
+`func (o *CreateUserSchema) GetDoNotSendWelcomeEmailOk() (*bool, bool)`
+
+GetDoNotSendWelcomeEmailOk returns a tuple with the DoNotSendWelcomeEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDoNotSendWelcomeEmail
+
+`func (o *CreateUserSchema) SetDoNotSendWelcomeEmail(v bool)`
+
+SetDoNotSendWelcomeEmail sets DoNotSendWelcomeEmail field to given value.
+
+### HasDoNotSendWelcomeEmail
+
+`func (o *CreateUserSchema) HasDoNotSendWelcomeEmail() bool`
+
+HasDoNotSendWelcomeEmail returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

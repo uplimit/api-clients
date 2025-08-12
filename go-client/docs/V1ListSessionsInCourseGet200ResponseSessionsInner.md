@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **UplimitSessionId** | **string** | Internal ID to identify the session across the Uplimit platform. | 
 **Name** | **string** | The name of the session. | 
 **StartsAt** | **time.Time** | The start date of the session. | 
+**EnrollmentEnabled** | **bool** | Whether the session allows enrollments | 
 
 ## Methods
 
 ### NewV1ListSessionsInCourseGet200ResponseSessionsInner
 
-`func NewV1ListSessionsInCourseGet200ResponseSessionsInner(uplimitSessionId string, name string, startsAt time.Time, ) *V1ListSessionsInCourseGet200ResponseSessionsInner`
+`func NewV1ListSessionsInCourseGet200ResponseSessionsInner(uplimitSessionId string, name string, startsAt time.Time, enrollmentEnabled bool, ) *V1ListSessionsInCourseGet200ResponseSessionsInner`
 
 NewV1ListSessionsInCourseGet200ResponseSessionsInner instantiates a new V1ListSessionsInCourseGet200ResponseSessionsInner object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *V1ListSessionsInCourseGet200ResponseSessionsInner) SetStartsAt(v time.Time)`
 
 SetStartsAt sets StartsAt field to given value.
+
+
+### GetEnrollmentEnabled
+
+`func (o *V1ListSessionsInCourseGet200ResponseSessionsInner) GetEnrollmentEnabled() bool`
+
+GetEnrollmentEnabled returns the EnrollmentEnabled field if non-nil, zero value otherwise.
+
+### GetEnrollmentEnabledOk
+
+`func (o *V1ListSessionsInCourseGet200ResponseSessionsInner) GetEnrollmentEnabledOk() (*bool, bool)`
+
+GetEnrollmentEnabledOk returns a tuple with the EnrollmentEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnrollmentEnabled
+
+`func (o *V1ListSessionsInCourseGet200ResponseSessionsInner) SetEnrollmentEnabled(v bool)`
+
+SetEnrollmentEnabled sets EnrollmentEnabled field to given value.
 
 
 

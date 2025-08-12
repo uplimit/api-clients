@@ -4,9 +4,76 @@ All URIs are relative to *https://uplimit.com/api/organization*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**V1EnrollUserIntoCoursePost**](CourseAPI.md#V1EnrollUserIntoCoursePost) | **Post** /v1/EnrollUserIntoCourse | 
 [**V1ListCoursesGet**](CourseAPI.md#V1ListCoursesGet) | **Get** /v1/ListCourses | 
 [**V1ListSessionsInCourseGet**](CourseAPI.md#V1ListSessionsInCourseGet) | **Get** /v1/ListSessionsInCourse | 
 
+
+
+## V1EnrollUserIntoCoursePost
+
+> V1EnrollUserIntoSessionPost200Response V1EnrollUserIntoCoursePost(ctx).V1EnrollUserIntoCoursePostRequest(v1EnrollUserIntoCoursePostRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	v1EnrollUserIntoCoursePostRequest := *openapiclient.NewV1EnrollUserIntoCoursePostRequest("EmailAddress_example", "UplimitCourseId_example", "UplimitEnrollUserIntoCourseSessionSelectionPolicy_example") // V1EnrollUserIntoCoursePostRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CourseAPI.V1EnrollUserIntoCoursePost(context.Background()).V1EnrollUserIntoCoursePostRequest(v1EnrollUserIntoCoursePostRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CourseAPI.V1EnrollUserIntoCoursePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `V1EnrollUserIntoCoursePost`: V1EnrollUserIntoSessionPost200Response
+	fmt.Fprintf(os.Stdout, "Response from `CourseAPI.V1EnrollUserIntoCoursePost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiV1EnrollUserIntoCoursePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **v1EnrollUserIntoCoursePostRequest** | [**V1EnrollUserIntoCoursePostRequest**](V1EnrollUserIntoCoursePostRequest.md) |  | 
+
+### Return type
+
+[**V1EnrollUserIntoSessionPost200Response**](V1EnrollUserIntoSessionPost200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## V1ListCoursesGet

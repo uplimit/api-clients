@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **UserAccountIsActive** | **bool** | Whether the user is allowed to access the Uplimit platform. | 
 **UserHasValidSubscriptionEnrollment** | **bool** | Whether the user is activated in your organization. | 
 **UplimitSubscriptionEnrollmentId** | **string** | Internal ID to identify the user&#39;s membership within your organization on Uplimit. | 
-**UplimitSubscriptionCommitmentId** | **string** | Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | 
+**UplimitSubscriptionCommitmentId** | **string** | Internal ID to identify the \&quot;group\&quot; the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | 
+**UplimitActiveSubscriptionCommitmentIds** | **[]string** | All the active subscription commitment ids for this user within this organization. | 
 **UplimitUserId** | **string** | Internal ID to identify the user across the Uplimit platform. | 
 **SessionCompletionStatus** | **string** | Whether the user has completed the session according to pre-defined completion criteria. | 
 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewUplimitUserInformationWithSessionCompletionStatusSchema
 
-`func NewUplimitUserInformationWithSessionCompletionStatusSchema(emailAddress string, firstName string, lastName string, userAccountIsActive bool, userHasValidSubscriptionEnrollment bool, uplimitSubscriptionEnrollmentId string, uplimitSubscriptionCommitmentId string, uplimitUserId string, sessionCompletionStatus string, ) *UplimitUserInformationWithSessionCompletionStatusSchema`
+`func NewUplimitUserInformationWithSessionCompletionStatusSchema(emailAddress string, firstName string, lastName string, userAccountIsActive bool, userHasValidSubscriptionEnrollment bool, uplimitSubscriptionEnrollmentId string, uplimitSubscriptionCommitmentId string, uplimitActiveSubscriptionCommitmentIds []string, uplimitUserId string, sessionCompletionStatus string, ) *UplimitUserInformationWithSessionCompletionStatusSchema`
 
 NewUplimitUserInformationWithSessionCompletionStatusSchema instantiates a new UplimitUserInformationWithSessionCompletionStatusSchema object
 This constructor will assign default values to properties that have it defined,
@@ -171,6 +172,26 @@ and a boolean to check if the value has been set.
 `func (o *UplimitUserInformationWithSessionCompletionStatusSchema) SetUplimitSubscriptionCommitmentId(v string)`
 
 SetUplimitSubscriptionCommitmentId sets UplimitSubscriptionCommitmentId field to given value.
+
+
+### GetUplimitActiveSubscriptionCommitmentIds
+
+`func (o *UplimitUserInformationWithSessionCompletionStatusSchema) GetUplimitActiveSubscriptionCommitmentIds() []string`
+
+GetUplimitActiveSubscriptionCommitmentIds returns the UplimitActiveSubscriptionCommitmentIds field if non-nil, zero value otherwise.
+
+### GetUplimitActiveSubscriptionCommitmentIdsOk
+
+`func (o *UplimitUserInformationWithSessionCompletionStatusSchema) GetUplimitActiveSubscriptionCommitmentIdsOk() (*[]string, bool)`
+
+GetUplimitActiveSubscriptionCommitmentIdsOk returns a tuple with the UplimitActiveSubscriptionCommitmentIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUplimitActiveSubscriptionCommitmentIds
+
+`func (o *UplimitUserInformationWithSessionCompletionStatusSchema) SetUplimitActiveSubscriptionCommitmentIds(v []string)`
+
+SetUplimitActiveSubscriptionCommitmentIds sets UplimitActiveSubscriptionCommitmentIds field to given value.
 
 
 ### GetUplimitUserId

@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EmailAddress** | **string** | The email address of the user. | 
-**SessionId** | Pointer to **string** | The ID of the session to enroll the user into. You must provide either this or uplimitSessionId. | [optional] 
-**UplimitSessionId** | Pointer to **string** | Internal ID to identify the session across the Uplimit platform. | [optional] 
-**SubscriptionCommitmentId** | Pointer to **string** | Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | [optional] 
+**UplimitCourseId** | **string** | Internal ID to identify the course across the Uplimit platform. | 
+**UplimitEnrollUserIntoCourseSessionSelectionPolicy** | **string** | The policy to decide which session to enroll a user into when enrolling the user into a course. | 
+**SubscriptionCommitmentId** | Pointer to **string** | Internal ID to identify the \&quot;group\&quot; the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | [optional] 
 
 ## Methods
 
 ### NewEnrollUserIntoCourseSchema
 
-`func NewEnrollUserIntoCourseSchema(emailAddress string, ) *EnrollUserIntoCourseSchema`
+`func NewEnrollUserIntoCourseSchema(emailAddress string, uplimitCourseId string, uplimitEnrollUserIntoCourseSessionSelectionPolicy string, ) *EnrollUserIntoCourseSchema`
 
 NewEnrollUserIntoCourseSchema instantiates a new EnrollUserIntoCourseSchema object
 This constructor will assign default values to properties that have it defined,
@@ -48,55 +48,45 @@ and a boolean to check if the value has been set.
 SetEmailAddress sets EmailAddress field to given value.
 
 
-### GetSessionId
+### GetUplimitCourseId
 
-`func (o *EnrollUserIntoCourseSchema) GetSessionId() string`
+`func (o *EnrollUserIntoCourseSchema) GetUplimitCourseId() string`
 
-GetSessionId returns the SessionId field if non-nil, zero value otherwise.
+GetUplimitCourseId returns the UplimitCourseId field if non-nil, zero value otherwise.
 
-### GetSessionIdOk
+### GetUplimitCourseIdOk
 
-`func (o *EnrollUserIntoCourseSchema) GetSessionIdOk() (*string, bool)`
+`func (o *EnrollUserIntoCourseSchema) GetUplimitCourseIdOk() (*string, bool)`
 
-GetSessionIdOk returns a tuple with the SessionId field if it's non-nil, zero value otherwise
+GetUplimitCourseIdOk returns a tuple with the UplimitCourseId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSessionId
+### SetUplimitCourseId
 
-`func (o *EnrollUserIntoCourseSchema) SetSessionId(v string)`
+`func (o *EnrollUserIntoCourseSchema) SetUplimitCourseId(v string)`
 
-SetSessionId sets SessionId field to given value.
+SetUplimitCourseId sets UplimitCourseId field to given value.
 
-### HasSessionId
 
-`func (o *EnrollUserIntoCourseSchema) HasSessionId() bool`
+### GetUplimitEnrollUserIntoCourseSessionSelectionPolicy
 
-HasSessionId returns a boolean if a field has been set.
+`func (o *EnrollUserIntoCourseSchema) GetUplimitEnrollUserIntoCourseSessionSelectionPolicy() string`
 
-### GetUplimitSessionId
+GetUplimitEnrollUserIntoCourseSessionSelectionPolicy returns the UplimitEnrollUserIntoCourseSessionSelectionPolicy field if non-nil, zero value otherwise.
 
-`func (o *EnrollUserIntoCourseSchema) GetUplimitSessionId() string`
+### GetUplimitEnrollUserIntoCourseSessionSelectionPolicyOk
 
-GetUplimitSessionId returns the UplimitSessionId field if non-nil, zero value otherwise.
+`func (o *EnrollUserIntoCourseSchema) GetUplimitEnrollUserIntoCourseSessionSelectionPolicyOk() (*string, bool)`
 
-### GetUplimitSessionIdOk
-
-`func (o *EnrollUserIntoCourseSchema) GetUplimitSessionIdOk() (*string, bool)`
-
-GetUplimitSessionIdOk returns a tuple with the UplimitSessionId field if it's non-nil, zero value otherwise
+GetUplimitEnrollUserIntoCourseSessionSelectionPolicyOk returns a tuple with the UplimitEnrollUserIntoCourseSessionSelectionPolicy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUplimitSessionId
+### SetUplimitEnrollUserIntoCourseSessionSelectionPolicy
 
-`func (o *EnrollUserIntoCourseSchema) SetUplimitSessionId(v string)`
+`func (o *EnrollUserIntoCourseSchema) SetUplimitEnrollUserIntoCourseSessionSelectionPolicy(v string)`
 
-SetUplimitSessionId sets UplimitSessionId field to given value.
+SetUplimitEnrollUserIntoCourseSessionSelectionPolicy sets UplimitEnrollUserIntoCourseSessionSelectionPolicy field to given value.
 
-### HasUplimitSessionId
-
-`func (o *EnrollUserIntoCourseSchema) HasUplimitSessionId() bool`
-
-HasUplimitSessionId returns a boolean if a field has been set.
 
 ### GetSubscriptionCommitmentId
 

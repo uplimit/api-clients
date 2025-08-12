@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **EmailAddress** | **string** | The email address of the user. | 
 **SessionId** | Pointer to **string** | The ID of the session to enroll the user into. You must provide either this or uplimitSessionId. | [optional] 
 **UplimitSessionId** | Pointer to **string** | Internal ID to identify the session across the Uplimit platform. | [optional] 
-**SubscriptionCommitmentId** | Pointer to **string** | Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | [optional] 
+**SubscriptionCommitmentId** | Pointer to **string** | Internal ID to identify the \&quot;group\&quot; the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | [optional] 
 
 ## Methods
 
