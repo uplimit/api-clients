@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EmailAddress** | **string** | The email address of the user. | 
 **SetIsActive** | **bool** | Whether to set the user as active or inactive. | 
+**SubscriptionCommitmentId** | Pointer to **string** | (optional) The subscription commitment id to target. If not provided, the user will be activated on the default subscription commitment, or deactivated across all their subscription commitments. | [optional] 
+**DoNotSendWelcomeEmail** | Pointer to **bool** | (optional) Whether to send the welcome email to the user when reactivating them. If not provided, the welcome email will be sent. This option is ignored when deactivating the user. | [optional] 
 
 ## Methods
 
@@ -65,6 +67,56 @@ and a boolean to check if the value has been set.
 
 SetSetIsActive sets SetIsActive field to given value.
 
+
+### GetSubscriptionCommitmentId
+
+`func (o *V1ToggleUserActivationPostRequest) GetSubscriptionCommitmentId() string`
+
+GetSubscriptionCommitmentId returns the SubscriptionCommitmentId field if non-nil, zero value otherwise.
+
+### GetSubscriptionCommitmentIdOk
+
+`func (o *V1ToggleUserActivationPostRequest) GetSubscriptionCommitmentIdOk() (*string, bool)`
+
+GetSubscriptionCommitmentIdOk returns a tuple with the SubscriptionCommitmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionCommitmentId
+
+`func (o *V1ToggleUserActivationPostRequest) SetSubscriptionCommitmentId(v string)`
+
+SetSubscriptionCommitmentId sets SubscriptionCommitmentId field to given value.
+
+### HasSubscriptionCommitmentId
+
+`func (o *V1ToggleUserActivationPostRequest) HasSubscriptionCommitmentId() bool`
+
+HasSubscriptionCommitmentId returns a boolean if a field has been set.
+
+### GetDoNotSendWelcomeEmail
+
+`func (o *V1ToggleUserActivationPostRequest) GetDoNotSendWelcomeEmail() bool`
+
+GetDoNotSendWelcomeEmail returns the DoNotSendWelcomeEmail field if non-nil, zero value otherwise.
+
+### GetDoNotSendWelcomeEmailOk
+
+`func (o *V1ToggleUserActivationPostRequest) GetDoNotSendWelcomeEmailOk() (*bool, bool)`
+
+GetDoNotSendWelcomeEmailOk returns a tuple with the DoNotSendWelcomeEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDoNotSendWelcomeEmail
+
+`func (o *V1ToggleUserActivationPostRequest) SetDoNotSendWelcomeEmail(v bool)`
+
+SetDoNotSendWelcomeEmail sets DoNotSendWelcomeEmail field to given value.
+
+### HasDoNotSendWelcomeEmail
+
+`func (o *V1ToggleUserActivationPostRequest) HasDoNotSendWelcomeEmail() bool`
+
+HasDoNotSendWelcomeEmail returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

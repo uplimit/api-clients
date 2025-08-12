@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-03-17
+API version: 2025-08-11
 Contact: hello@uplimit.com
 */
 
@@ -26,6 +26,10 @@ type V1ToggleUserActivationPostRequest struct {
 	EmailAddress string `json:"emailAddress"`
 	// Whether to set the user as active or inactive.
 	SetIsActive bool `json:"setIsActive"`
+	// (optional) The subscription commitment id to target. If not provided, the user will be activated on the default subscription commitment, or deactivated across all their subscription commitments.
+	SubscriptionCommitmentId *string `json:"subscriptionCommitmentId,omitempty"`
+	// (optional) Whether to send the welcome email to the user when reactivating them. If not provided, the welcome email will be sent. This option is ignored when deactivating the user.
+	DoNotSendWelcomeEmail *bool `json:"doNotSendWelcomeEmail,omitempty"`
 }
 
 type _V1ToggleUserActivationPostRequest V1ToggleUserActivationPostRequest
@@ -97,6 +101,70 @@ func (o *V1ToggleUserActivationPostRequest) SetSetIsActive(v bool) {
 	o.SetIsActive = v
 }
 
+// GetSubscriptionCommitmentId returns the SubscriptionCommitmentId field value if set, zero value otherwise.
+func (o *V1ToggleUserActivationPostRequest) GetSubscriptionCommitmentId() string {
+	if o == nil || IsNil(o.SubscriptionCommitmentId) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionCommitmentId
+}
+
+// GetSubscriptionCommitmentIdOk returns a tuple with the SubscriptionCommitmentId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *V1ToggleUserActivationPostRequest) GetSubscriptionCommitmentIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionCommitmentId) {
+		return nil, false
+	}
+	return o.SubscriptionCommitmentId, true
+}
+
+// HasSubscriptionCommitmentId returns a boolean if a field has been set.
+func (o *V1ToggleUserActivationPostRequest) HasSubscriptionCommitmentId() bool {
+	if o != nil && !IsNil(o.SubscriptionCommitmentId) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionCommitmentId gets a reference to the given string and assigns it to the SubscriptionCommitmentId field.
+func (o *V1ToggleUserActivationPostRequest) SetSubscriptionCommitmentId(v string) {
+	o.SubscriptionCommitmentId = &v
+}
+
+// GetDoNotSendWelcomeEmail returns the DoNotSendWelcomeEmail field value if set, zero value otherwise.
+func (o *V1ToggleUserActivationPostRequest) GetDoNotSendWelcomeEmail() bool {
+	if o == nil || IsNil(o.DoNotSendWelcomeEmail) {
+		var ret bool
+		return ret
+	}
+	return *o.DoNotSendWelcomeEmail
+}
+
+// GetDoNotSendWelcomeEmailOk returns a tuple with the DoNotSendWelcomeEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *V1ToggleUserActivationPostRequest) GetDoNotSendWelcomeEmailOk() (*bool, bool) {
+	if o == nil || IsNil(o.DoNotSendWelcomeEmail) {
+		return nil, false
+	}
+	return o.DoNotSendWelcomeEmail, true
+}
+
+// HasDoNotSendWelcomeEmail returns a boolean if a field has been set.
+func (o *V1ToggleUserActivationPostRequest) HasDoNotSendWelcomeEmail() bool {
+	if o != nil && !IsNil(o.DoNotSendWelcomeEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetDoNotSendWelcomeEmail gets a reference to the given bool and assigns it to the DoNotSendWelcomeEmail field.
+func (o *V1ToggleUserActivationPostRequest) SetDoNotSendWelcomeEmail(v bool) {
+	o.DoNotSendWelcomeEmail = &v
+}
+
 func (o V1ToggleUserActivationPostRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -109,6 +177,12 @@ func (o V1ToggleUserActivationPostRequest) ToMap() (map[string]interface{}, erro
 	toSerialize := map[string]interface{}{}
 	toSerialize["emailAddress"] = o.EmailAddress
 	toSerialize["setIsActive"] = o.SetIsActive
+	if !IsNil(o.SubscriptionCommitmentId) {
+		toSerialize["subscriptionCommitmentId"] = o.SubscriptionCommitmentId
+	}
+	if !IsNil(o.DoNotSendWelcomeEmail) {
+		toSerialize["doNotSendWelcomeEmail"] = o.DoNotSendWelcomeEmail
+	}
 	return toSerialize, nil
 }
 

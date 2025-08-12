@@ -1,8 +1,13 @@
 import localVarRequest from 'request';
 
+export * from './addUserAuthenticationMethodResponseSchema';
+export * from './addUserAuthenticationMethodSchema';
 export * from './createUserResponseSchema';
 export * from './createUserSchema';
 export * from './enrollUserIntoCourseSchema';
+export * from './enrollUserIntoSessionSchema';
+export * from './getLearnerActivityGetResponseSchema';
+export * from './getLearnerActivityStartResponseSchema';
 export * from './healthcheckIncorrectApiKeyResponseSchema';
 export * from './healthcheckSuccessResponseSchema';
 export * from './listActiveUsersResponseSchema';
@@ -11,15 +16,21 @@ export * from './listEnrollmentsInSessionResponseSchema';
 export * from './listInactiveUsersResponseSchema';
 export * from './listSessionsInCourseResponseSchema';
 export * from './toggleUserActivationSchema';
+export * from './unenrollUserFromSessionSchema';
 export * from './uplimitCourseInformationSchema';
 export * from './uplimitSessionInformationSchema';
 export * from './uplimitUserInformationSchema';
 export * from './uplimitUserInformationWithSessionCompletionStatusSchema';
+export * from './v1AddUserAuthenticationMethodPostRequest';
 export * from './v1CreateUserPost200Response';
 export * from './v1CreateUserPost400Response';
 export * from './v1CreateUserPostRequest';
+export * from './v1EnrollUserIntoCoursePostRequest';
 export * from './v1EnrollUserIntoSessionPost200Response';
 export * from './v1EnrollUserIntoSessionPostRequest';
+export * from './v1GetLearnerActivityGetGet200Response';
+export * from './v1GetLearnerActivityStartPost200Response';
+export * from './v1GetLearnerActivityStartPostRequest';
 export * from './v1GetUserInformationEmailAddressOrUserIdGet200Response';
 export * from './v1HealthcheckGet200Response';
 export * from './v1HealthcheckGet403Response';
@@ -31,6 +42,7 @@ export * from './v1ListEnrollmentsInSessionGet200ResponseUsersInner';
 export * from './v1ListSessionsInCourseGet200Response';
 export * from './v1ListSessionsInCourseGet200ResponseSessionsInner';
 export * from './v1ToggleUserActivationPostRequest';
+export * from './v1UnenrollUserFromSessionPostRequest';
 
 import * as fs from 'fs';
 
@@ -45,9 +57,14 @@ export interface RequestDetailedFile {
 export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 
+import { AddUserAuthenticationMethodResponseSchema } from './addUserAuthenticationMethodResponseSchema';
+import { AddUserAuthenticationMethodSchema } from './addUserAuthenticationMethodSchema';
 import { CreateUserResponseSchema } from './createUserResponseSchema';
 import { CreateUserSchema } from './createUserSchema';
 import { EnrollUserIntoCourseSchema } from './enrollUserIntoCourseSchema';
+import { EnrollUserIntoSessionSchema } from './enrollUserIntoSessionSchema';
+import { GetLearnerActivityGetResponseSchema } from './getLearnerActivityGetResponseSchema';
+import { GetLearnerActivityStartResponseSchema } from './getLearnerActivityStartResponseSchema';
 import { HealthcheckIncorrectApiKeyResponseSchema } from './healthcheckIncorrectApiKeyResponseSchema';
 import { HealthcheckSuccessResponseSchema } from './healthcheckSuccessResponseSchema';
 import { ListActiveUsersResponseSchema } from './listActiveUsersResponseSchema';
@@ -56,15 +73,21 @@ import { ListEnrollmentsInSessionResponseSchema } from './listEnrollmentsInSessi
 import { ListInactiveUsersResponseSchema } from './listInactiveUsersResponseSchema';
 import { ListSessionsInCourseResponseSchema } from './listSessionsInCourseResponseSchema';
 import { ToggleUserActivationSchema } from './toggleUserActivationSchema';
+import { UnenrollUserFromSessionSchema } from './unenrollUserFromSessionSchema';
 import { UplimitCourseInformationSchema } from './uplimitCourseInformationSchema';
 import { UplimitSessionInformationSchema } from './uplimitSessionInformationSchema';
 import { UplimitUserInformationSchema } from './uplimitUserInformationSchema';
 import { UplimitUserInformationWithSessionCompletionStatusSchema } from './uplimitUserInformationWithSessionCompletionStatusSchema';
+import { V1AddUserAuthenticationMethodPostRequest } from './v1AddUserAuthenticationMethodPostRequest';
 import { V1CreateUserPost200Response } from './v1CreateUserPost200Response';
 import { V1CreateUserPost400Response } from './v1CreateUserPost400Response';
 import { V1CreateUserPostRequest } from './v1CreateUserPostRequest';
+import { V1EnrollUserIntoCoursePostRequest } from './v1EnrollUserIntoCoursePostRequest';
 import { V1EnrollUserIntoSessionPost200Response } from './v1EnrollUserIntoSessionPost200Response';
 import { V1EnrollUserIntoSessionPostRequest } from './v1EnrollUserIntoSessionPostRequest';
+import { V1GetLearnerActivityGetGet200Response } from './v1GetLearnerActivityGetGet200Response';
+import { V1GetLearnerActivityStartPost200Response } from './v1GetLearnerActivityStartPost200Response';
+import { V1GetLearnerActivityStartPostRequest } from './v1GetLearnerActivityStartPostRequest';
 import { V1GetUserInformationEmailAddressOrUserIdGet200Response } from './v1GetUserInformationEmailAddressOrUserIdGet200Response';
 import { V1HealthcheckGet200Response } from './v1HealthcheckGet200Response';
 import { V1HealthcheckGet403Response } from './v1HealthcheckGet403Response';
@@ -76,6 +99,7 @@ import { V1ListEnrollmentsInSessionGet200ResponseUsersInner } from './v1ListEnro
 import { V1ListSessionsInCourseGet200Response } from './v1ListSessionsInCourseGet200Response';
 import { V1ListSessionsInCourseGet200ResponseSessionsInner } from './v1ListSessionsInCourseGet200ResponseSessionsInner';
 import { V1ToggleUserActivationPostRequest } from './v1ToggleUserActivationPostRequest';
+import { V1UnenrollUserFromSessionPostRequest } from './v1UnenrollUserFromSessionPostRequest';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -90,14 +114,23 @@ let primitives = [
                  ];
 
 let enumsMap: {[index: string]: any} = {
+        "AddUserAuthenticationMethodSchema.AuthenticationMethodEnum": AddUserAuthenticationMethodSchema.AuthenticationMethodEnum,
+        "EnrollUserIntoCourseSchema.UplimitEnrollUserIntoCourseSessionSelectionPolicyEnum": EnrollUserIntoCourseSchema.UplimitEnrollUserIntoCourseSessionSelectionPolicyEnum,
         "UplimitUserInformationWithSessionCompletionStatusSchema.SessionCompletionStatusEnum": UplimitUserInformationWithSessionCompletionStatusSchema.SessionCompletionStatusEnum,
+        "V1AddUserAuthenticationMethodPostRequest.AuthenticationMethodEnum": V1AddUserAuthenticationMethodPostRequest.AuthenticationMethodEnum,
+        "V1EnrollUserIntoCoursePostRequest.UplimitEnrollUserIntoCourseSessionSelectionPolicyEnum": V1EnrollUserIntoCoursePostRequest.UplimitEnrollUserIntoCourseSessionSelectionPolicyEnum,
         "V1ListEnrollmentsInSessionGet200ResponseUsersInner.SessionCompletionStatusEnum": V1ListEnrollmentsInSessionGet200ResponseUsersInner.SessionCompletionStatusEnum,
 }
 
 let typeMap: {[index: string]: any} = {
+    "AddUserAuthenticationMethodResponseSchema": AddUserAuthenticationMethodResponseSchema,
+    "AddUserAuthenticationMethodSchema": AddUserAuthenticationMethodSchema,
     "CreateUserResponseSchema": CreateUserResponseSchema,
     "CreateUserSchema": CreateUserSchema,
     "EnrollUserIntoCourseSchema": EnrollUserIntoCourseSchema,
+    "EnrollUserIntoSessionSchema": EnrollUserIntoSessionSchema,
+    "GetLearnerActivityGetResponseSchema": GetLearnerActivityGetResponseSchema,
+    "GetLearnerActivityStartResponseSchema": GetLearnerActivityStartResponseSchema,
     "HealthcheckIncorrectApiKeyResponseSchema": HealthcheckIncorrectApiKeyResponseSchema,
     "HealthcheckSuccessResponseSchema": HealthcheckSuccessResponseSchema,
     "ListActiveUsersResponseSchema": ListActiveUsersResponseSchema,
@@ -106,15 +139,21 @@ let typeMap: {[index: string]: any} = {
     "ListInactiveUsersResponseSchema": ListInactiveUsersResponseSchema,
     "ListSessionsInCourseResponseSchema": ListSessionsInCourseResponseSchema,
     "ToggleUserActivationSchema": ToggleUserActivationSchema,
+    "UnenrollUserFromSessionSchema": UnenrollUserFromSessionSchema,
     "UplimitCourseInformationSchema": UplimitCourseInformationSchema,
     "UplimitSessionInformationSchema": UplimitSessionInformationSchema,
     "UplimitUserInformationSchema": UplimitUserInformationSchema,
     "UplimitUserInformationWithSessionCompletionStatusSchema": UplimitUserInformationWithSessionCompletionStatusSchema,
+    "V1AddUserAuthenticationMethodPostRequest": V1AddUserAuthenticationMethodPostRequest,
     "V1CreateUserPost200Response": V1CreateUserPost200Response,
     "V1CreateUserPost400Response": V1CreateUserPost400Response,
     "V1CreateUserPostRequest": V1CreateUserPostRequest,
+    "V1EnrollUserIntoCoursePostRequest": V1EnrollUserIntoCoursePostRequest,
     "V1EnrollUserIntoSessionPost200Response": V1EnrollUserIntoSessionPost200Response,
     "V1EnrollUserIntoSessionPostRequest": V1EnrollUserIntoSessionPostRequest,
+    "V1GetLearnerActivityGetGet200Response": V1GetLearnerActivityGetGet200Response,
+    "V1GetLearnerActivityStartPost200Response": V1GetLearnerActivityStartPost200Response,
+    "V1GetLearnerActivityStartPostRequest": V1GetLearnerActivityStartPostRequest,
     "V1GetUserInformationEmailAddressOrUserIdGet200Response": V1GetUserInformationEmailAddressOrUserIdGet200Response,
     "V1HealthcheckGet200Response": V1HealthcheckGet200Response,
     "V1HealthcheckGet403Response": V1HealthcheckGet403Response,
@@ -126,6 +165,7 @@ let typeMap: {[index: string]: any} = {
     "V1ListSessionsInCourseGet200Response": V1ListSessionsInCourseGet200Response,
     "V1ListSessionsInCourseGet200ResponseSessionsInner": V1ListSessionsInCourseGet200ResponseSessionsInner,
     "V1ToggleUserActivationPostRequest": V1ToggleUserActivationPostRequest,
+    "V1UnenrollUserFromSessionPostRequest": V1UnenrollUserFromSessionPostRequest,
 }
 
 // Check if a string starts with another string without using es6 features

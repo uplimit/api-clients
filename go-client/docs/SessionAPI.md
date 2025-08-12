@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**V1EnrollUserIntoSessionPost**](SessionAPI.md#V1EnrollUserIntoSessionPost) | **Post** /v1/EnrollUserIntoSession | 
 [**V1ListEnrollmentsInSessionGet**](SessionAPI.md#V1ListEnrollmentsInSessionGet) | **Get** /v1/ListEnrollmentsInSession | 
 [**V1ListSessionsInCourseGet**](SessionAPI.md#V1ListSessionsInCourseGet) | **Get** /v1/ListSessionsInCourse | 
+[**V1UnenrollUserFromSessionPost**](SessionAPI.md#V1UnenrollUserFromSessionPost) | **Post** /v1/UnenrollUserFromSession | 
 
 
 
@@ -209,6 +210,72 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## V1UnenrollUserFromSessionPost
+
+> V1EnrollUserIntoSessionPost200Response V1UnenrollUserFromSessionPost(ctx).V1UnenrollUserFromSessionPostRequest(v1UnenrollUserFromSessionPostRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	v1UnenrollUserFromSessionPostRequest := *openapiclient.NewV1UnenrollUserFromSessionPostRequest("EmailAddress_example", "UplimitSessionId_example") // V1UnenrollUserFromSessionPostRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SessionAPI.V1UnenrollUserFromSessionPost(context.Background()).V1UnenrollUserFromSessionPostRequest(v1UnenrollUserFromSessionPostRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SessionAPI.V1UnenrollUserFromSessionPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `V1UnenrollUserFromSessionPost`: V1EnrollUserIntoSessionPost200Response
+	fmt.Fprintf(os.Stdout, "Response from `SessionAPI.V1UnenrollUserFromSessionPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiV1UnenrollUserFromSessionPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **v1UnenrollUserFromSessionPostRequest** | [**V1UnenrollUserFromSessionPostRequest**](V1UnenrollUserFromSessionPostRequest.md) |  | 
+
+### Return type
+
+[**V1EnrollUserIntoSessionPost200Response**](V1EnrollUserIntoSessionPost200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

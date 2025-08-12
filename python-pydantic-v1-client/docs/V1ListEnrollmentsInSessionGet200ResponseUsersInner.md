@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **user_account_is_active** | **bool** | Whether the user is allowed to access the Uplimit platform. | 
 **user_has_valid_subscription_enrollment** | **bool** | Whether the user is activated in your organization. | 
 **uplimit_subscription_enrollment_id** | **str** | Internal ID to identify the user&#39;s membership within your organization on Uplimit. | 
-**uplimit_subscription_commitment_id** | **str** | Internal ID to identify the “group” the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | 
+**uplimit_subscription_commitment_id** | **str** | Internal ID to identify the \&quot;group\&quot; the user belongs to within your organization. Leaving this blank will enroll the user into the default group. | 
+**uplimit_active_subscription_commitment_ids** | **List[str]** | All the active subscription commitment ids for this user within this organization. | 
 **uplimit_user_id** | **str** | Internal ID to identify the user across the Uplimit platform. | 
 **session_completion_status** | **str** | Whether the user has completed the session according to pre-defined completion criteria. | 
 
