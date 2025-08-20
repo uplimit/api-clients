@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-08-11
+API version: 2025-08-18
 Contact: hello@uplimit.com
 */
 
@@ -42,7 +42,7 @@ var (
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
 
-// APIClient manages communication with the Uplimit Organization API API v2025-08-11
+// APIClient manages communication with the Uplimit Organization API API v2025-08-18
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration

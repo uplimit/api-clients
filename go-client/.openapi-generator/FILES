@@ -106,5 +106,4 @@ model_uplimit_session_information_schema.go
 model_uplimit_user_information_schema.go
 model_uplimit_user_information_with_session_completion_status_schema.go
 response.go
-test/api_export_test.go
 utils.go

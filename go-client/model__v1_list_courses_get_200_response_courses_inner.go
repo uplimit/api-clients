@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-08-11
+API version: 2025-08-18
 Contact: hello@uplimit.com
 */
 
@@ -26,6 +26,8 @@ type V1ListCoursesGet200ResponseCoursesInner struct {
 	UplimitCourseId string `json:"uplimitCourseId"`
 	// The slug (i.e. short name) of the course across the Uplimit platform.
 	UplimitCourseSlug string `json:"uplimitCourseSlug"`
+	// The description of the course (may be empty).
+	UplimitCourseDescription string `json:"uplimitCourseDescription"`
 	// The name of the course.
 	Name string `json:"name"`
 }
@@ -36,10 +38,11 @@ type _V1ListCoursesGet200ResponseCoursesInner V1ListCoursesGet200ResponseCourses
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV1ListCoursesGet200ResponseCoursesInner(uplimitCourseId string, uplimitCourseSlug string, name string) *V1ListCoursesGet200ResponseCoursesInner {
+func NewV1ListCoursesGet200ResponseCoursesInner(uplimitCourseId string, uplimitCourseSlug string, uplimitCourseDescription string, name string) *V1ListCoursesGet200ResponseCoursesInner {
 	this := V1ListCoursesGet200ResponseCoursesInner{}
 	this.UplimitCourseId = uplimitCourseId
 	this.UplimitCourseSlug = uplimitCourseSlug
+	this.UplimitCourseDescription = uplimitCourseDescription
 	this.Name = name
 	return &this
 }
@@ -100,6 +103,30 @@ func (o *V1ListCoursesGet200ResponseCoursesInner) SetUplimitCourseSlug(v string)
 	o.UplimitCourseSlug = v
 }
 
+// GetUplimitCourseDescription returns the UplimitCourseDescription field value
+func (o *V1ListCoursesGet200ResponseCoursesInner) GetUplimitCourseDescription() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UplimitCourseDescription
+}
+
+// GetUplimitCourseDescriptionOk returns a tuple with the UplimitCourseDescription field value
+// and a boolean to check if the value has been set.
+func (o *V1ListCoursesGet200ResponseCoursesInner) GetUplimitCourseDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UplimitCourseDescription, true
+}
+
+// SetUplimitCourseDescription sets field value
+func (o *V1ListCoursesGet200ResponseCoursesInner) SetUplimitCourseDescription(v string) {
+	o.UplimitCourseDescription = v
+}
+
 // GetName returns the Name field value
 func (o *V1ListCoursesGet200ResponseCoursesInner) GetName() string {
 	if o == nil {
@@ -136,6 +163,7 @@ func (o V1ListCoursesGet200ResponseCoursesInner) ToMap() (map[string]interface{}
 	toSerialize := map[string]interface{}{}
 	toSerialize["uplimitCourseId"] = o.UplimitCourseId
 	toSerialize["uplimitCourseSlug"] = o.UplimitCourseSlug
+	toSerialize["uplimitCourseDescription"] = o.UplimitCourseDescription
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
 }
@@ -147,6 +175,7 @@ func (o *V1ListCoursesGet200ResponseCoursesInner) UnmarshalJSON(data []byte) (er
 	requiredProperties := []string{
 		"uplimitCourseId",
 		"uplimitCourseSlug",
+		"uplimitCourseDescription",
 		"name",
 	}
 

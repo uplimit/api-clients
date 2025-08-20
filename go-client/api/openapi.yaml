@@ -7,7 +7,7 @@ info:
   description: "This API is used to manage organizations within the Uplimit platform.\
     \ For more information, please reach out to your Uplimit Enterprise contact."
   title: Uplimit Organization API
-  version: 2025-08-11
+  version: 2025-08-18
 servers:
 - description: Uplimit
   url: https://uplimit.com/api/organization/
@@ -969,12 +969,16 @@ components:
           - PENDING
           - COMPLETED
           type: string
+        uplimitSessionEnrollmentId:
+          description: The uplimit internal ID for the user enrollment in session.
+          type: string
       required:
       - emailAddress
       - firstName
       - lastName
       - sessionCompletionStatus
       - uplimitActiveSubscriptionCommitmentIds
+      - uplimitSessionEnrollmentId
       - uplimitSubscriptionCommitmentId
       - uplimitSubscriptionEnrollmentId
       - uplimitUserId
@@ -992,10 +996,15 @@ components:
           description: The start date of the session.
           format: date-time
           type: string
+        endsAt:
+          description: The end date of the session.
+          format: date-time
+          type: string
         enrollmentEnabled:
           description: Whether the session allows enrollments
           type: boolean
       required:
+      - endsAt
       - enrollmentEnabled
       - name
       - startsAt
@@ -1020,11 +1029,15 @@ components:
           description: The slug (i.e. short name) of the course across the Uplimit
             platform.
           type: string
+        uplimitCourseDescription:
+          description: The description of the course (may be empty).
+          type: string
         name:
           description: The name of the course.
           type: string
       required:
       - name
+      - uplimitCourseDescription
       - uplimitCourseId
       - uplimitCourseSlug
     ListCoursesResponseSchema:
@@ -1336,6 +1349,7 @@ components:
       - users
     _v1_ListCourses_get_200_response_courses_inner:
       example:
+        uplimitCourseDescription: uplimitCourseDescription
         name: name
         uplimitCourseSlug: uplimitCourseSlug
         uplimitCourseId: uplimitCourseId
@@ -1347,20 +1361,26 @@ components:
           description: The slug (i.e. short name) of the course across the Uplimit
             platform.
           type: string
+        uplimitCourseDescription:
+          description: The description of the course (may be empty).
+          type: string
         name:
           description: The name of the course.
           type: string
       required:
       - name
+      - uplimitCourseDescription
       - uplimitCourseId
       - uplimitCourseSlug
     _v1_ListCourses_get_200_response:
       example:
         courses:
-        - name: name
+        - uplimitCourseDescription: uplimitCourseDescription
+          name: name
           uplimitCourseSlug: uplimitCourseSlug
           uplimitCourseId: uplimitCourseId
-        - name: name
+        - uplimitCourseDescription: uplimitCourseDescription
+          name: name
           uplimitCourseSlug: uplimitCourseSlug
           uplimitCourseId: uplimitCourseId
         totalCount: 0.8008281904610115
@@ -1388,6 +1408,7 @@ components:
         - uplimitActiveSubscriptionCommitmentIds
         sessionCompletionStatus: PENDING
         uplimitSubscriptionEnrollmentId: uplimitSubscriptionEnrollmentId
+        uplimitSessionEnrollmentId: uplimitSessionEnrollmentId
       properties:
         emailAddress:
           description: The email address of the user.
@@ -1432,12 +1453,16 @@ components:
           - PENDING
           - COMPLETED
           type: string
+        uplimitSessionEnrollmentId:
+          description: The uplimit internal ID for the user enrollment in session.
+          type: string
       required:
       - emailAddress
       - firstName
       - lastName
       - sessionCompletionStatus
       - uplimitActiveSubscriptionCommitmentIds
+      - uplimitSessionEnrollmentId
       - uplimitSubscriptionCommitmentId
       - uplimitSubscriptionEnrollmentId
       - uplimitUserId
@@ -1459,6 +1484,7 @@ components:
           - uplimitActiveSubscriptionCommitmentIds
           sessionCompletionStatus: PENDING
           uplimitSubscriptionEnrollmentId: uplimitSubscriptionEnrollmentId
+          uplimitSessionEnrollmentId: uplimitSessionEnrollmentId
         - uplimitUserId: uplimitUserId
           firstName: firstName
           lastName: lastName
@@ -1471,6 +1497,7 @@ components:
           - uplimitActiveSubscriptionCommitmentIds
           sessionCompletionStatus: PENDING
           uplimitSubscriptionEnrollmentId: uplimitSubscriptionEnrollmentId
+          uplimitSessionEnrollmentId: uplimitSessionEnrollmentId
       properties:
         users:
           items:
@@ -1487,6 +1514,7 @@ components:
         name: name
         startsAt: 2000-01-23T04:56:07.000+00:00
         uplimitSessionId: uplimitSessionId
+        endsAt: 2000-01-23T04:56:07.000+00:00
       properties:
         uplimitSessionId:
           description: Internal ID to identify the session across the Uplimit platform.
@@ -1498,10 +1526,15 @@ components:
           description: The start date of the session.
           format: date-time
           type: string
+        endsAt:
+          description: The end date of the session.
+          format: date-time
+          type: string
         enrollmentEnabled:
           description: Whether the session allows enrollments
           type: boolean
       required:
+      - endsAt
       - enrollmentEnabled
       - name
       - startsAt
@@ -1513,10 +1546,12 @@ components:
           name: name
           startsAt: 2000-01-23T04:56:07.000+00:00
           uplimitSessionId: uplimitSessionId
+          endsAt: 2000-01-23T04:56:07.000+00:00
         - enrollmentEnabled: true
           name: name
           startsAt: 2000-01-23T04:56:07.000+00:00
           uplimitSessionId: uplimitSessionId
+          endsAt: 2000-01-23T04:56:07.000+00:00
         totalCount: 0.8008281904610115
       properties:
         sessions:

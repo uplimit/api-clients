@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-08-11
+API version: 2025-08-18
 Contact: hello@uplimit.com
 */
 
@@ -42,6 +42,8 @@ type V1ListEnrollmentsInSessionGet200ResponseUsersInner struct {
 	UplimitUserId string `json:"uplimitUserId"`
 	// Whether the user has completed the session according to pre-defined completion criteria.
 	SessionCompletionStatus string `json:"sessionCompletionStatus"`
+	// The uplimit internal ID for the user enrollment in session.
+	UplimitSessionEnrollmentId string `json:"uplimitSessionEnrollmentId"`
 }
 
 type _V1ListEnrollmentsInSessionGet200ResponseUsersInner V1ListEnrollmentsInSessionGet200ResponseUsersInner
@@ -50,7 +52,7 @@ type _V1ListEnrollmentsInSessionGet200ResponseUsersInner V1ListEnrollmentsInSess
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV1ListEnrollmentsInSessionGet200ResponseUsersInner(emailAddress string, firstName string, lastName string, userAccountIsActive bool, userHasValidSubscriptionEnrollment bool, uplimitSubscriptionEnrollmentId string, uplimitSubscriptionCommitmentId string, uplimitActiveSubscriptionCommitmentIds []string, uplimitUserId string, sessionCompletionStatus string) *V1ListEnrollmentsInSessionGet200ResponseUsersInner {
+func NewV1ListEnrollmentsInSessionGet200ResponseUsersInner(emailAddress string, firstName string, lastName string, userAccountIsActive bool, userHasValidSubscriptionEnrollment bool, uplimitSubscriptionEnrollmentId string, uplimitSubscriptionCommitmentId string, uplimitActiveSubscriptionCommitmentIds []string, uplimitUserId string, sessionCompletionStatus string, uplimitSessionEnrollmentId string) *V1ListEnrollmentsInSessionGet200ResponseUsersInner {
 	this := V1ListEnrollmentsInSessionGet200ResponseUsersInner{}
 	this.EmailAddress = emailAddress
 	this.FirstName = firstName
@@ -62,6 +64,7 @@ func NewV1ListEnrollmentsInSessionGet200ResponseUsersInner(emailAddress string, 
 	this.UplimitActiveSubscriptionCommitmentIds = uplimitActiveSubscriptionCommitmentIds
 	this.UplimitUserId = uplimitUserId
 	this.SessionCompletionStatus = sessionCompletionStatus
+	this.UplimitSessionEnrollmentId = uplimitSessionEnrollmentId
 	return &this
 }
 
@@ -313,6 +316,30 @@ func (o *V1ListEnrollmentsInSessionGet200ResponseUsersInner) SetSessionCompletio
 	o.SessionCompletionStatus = v
 }
 
+// GetUplimitSessionEnrollmentId returns the UplimitSessionEnrollmentId field value
+func (o *V1ListEnrollmentsInSessionGet200ResponseUsersInner) GetUplimitSessionEnrollmentId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UplimitSessionEnrollmentId
+}
+
+// GetUplimitSessionEnrollmentIdOk returns a tuple with the UplimitSessionEnrollmentId field value
+// and a boolean to check if the value has been set.
+func (o *V1ListEnrollmentsInSessionGet200ResponseUsersInner) GetUplimitSessionEnrollmentIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UplimitSessionEnrollmentId, true
+}
+
+// SetUplimitSessionEnrollmentId sets field value
+func (o *V1ListEnrollmentsInSessionGet200ResponseUsersInner) SetUplimitSessionEnrollmentId(v string) {
+	o.UplimitSessionEnrollmentId = v
+}
+
 func (o V1ListEnrollmentsInSessionGet200ResponseUsersInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -333,6 +360,7 @@ func (o V1ListEnrollmentsInSessionGet200ResponseUsersInner) ToMap() (map[string]
 	toSerialize["uplimitActiveSubscriptionCommitmentIds"] = o.UplimitActiveSubscriptionCommitmentIds
 	toSerialize["uplimitUserId"] = o.UplimitUserId
 	toSerialize["sessionCompletionStatus"] = o.SessionCompletionStatus
+	toSerialize["uplimitSessionEnrollmentId"] = o.UplimitSessionEnrollmentId
 	return toSerialize, nil
 }
 
@@ -351,6 +379,7 @@ func (o *V1ListEnrollmentsInSessionGet200ResponseUsersInner) UnmarshalJSON(data 
 		"uplimitActiveSubscriptionCommitmentIds",
 		"uplimitUserId",
 		"sessionCompletionStatus",
+		"uplimitSessionEnrollmentId",
 	}
 
 	allProperties := make(map[string]interface{})
