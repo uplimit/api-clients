@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **uplimit_session_id** | **str** | Internal ID to identify the session across the Uplimit platform. | 
 **name** | **str** | The name of the session. | 
 **starts_at** | **datetime** | The start date of the session. | 
+**ends_at** | **datetime** | The end date of the session. | 
 **enrollment_enabled** | **bool** | Whether the session allows enrollments | 
 
 ## Example

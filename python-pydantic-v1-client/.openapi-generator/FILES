@@ -117,17 +117,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_add_user_authentication_method_response_schema.py
-test/test_add_user_authentication_method_schema.py
-test/test_enroll_user_into_session_schema.py
-test/test_export_api.py
-test/test_get_learner_activity_get_response_schema.py
-test/test_get_learner_activity_start_response_schema.py
-test/test_unenroll_user_from_session_schema.py
-test/test_v1_add_user_authentication_method_post_request.py
-test/test_v1_enroll_user_into_course_post_request.py
-test/test_v1_get_learner_activity_get_get200_response.py
-test/test_v1_get_learner_activity_start_post200_response.py
-test/test_v1_get_learner_activity_start_post_request.py
-test/test_v1_unenroll_user_from_session_post_request.py
 tox.ini

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **uplimit_active_subscription_commitment_ids** | **List[str]** | All the active subscription commitment ids for this user within this organization. | 
 **uplimit_user_id** | **str** | Internal ID to identify the user across the Uplimit platform. | 
 **session_completion_status** | **str** | Whether the user has completed the session according to pre-defined completion criteria. | 
+**uplimit_session_enrollment_id** | **str** | The uplimit internal ID for the user enrollment in session. | 
 
 ## Example
 

@@ -6,13 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UplimitCourseId** | **string** | Internal ID to identify the course across the Uplimit platform. | 
 **UplimitCourseSlug** | **string** | The slug (i.e. short name) of the course across the Uplimit platform. | 
+**UplimitCourseDescription** | **string** | The description of the course (may be empty). | 
 **Name** | **string** | The name of the course. | 
 
 ## Methods
 
 ### NewUplimitCourseInformationSchema
 
-`func NewUplimitCourseInformationSchema(uplimitCourseId string, uplimitCourseSlug string, name string, ) *UplimitCourseInformationSchema`
+`func NewUplimitCourseInformationSchema(uplimitCourseId string, uplimitCourseSlug string, uplimitCourseDescription string, name string, ) *UplimitCourseInformationSchema`
 
 NewUplimitCourseInformationSchema instantiates a new UplimitCourseInformationSchema object
 This constructor will assign default values to properties that have it defined,
@@ -65,6 +66,26 @@ and a boolean to check if the value has been set.
 `func (o *UplimitCourseInformationSchema) SetUplimitCourseSlug(v string)`
 
 SetUplimitCourseSlug sets UplimitCourseSlug field to given value.
+
+
+### GetUplimitCourseDescription
+
+`func (o *UplimitCourseInformationSchema) GetUplimitCourseDescription() string`
+
+GetUplimitCourseDescription returns the UplimitCourseDescription field if non-nil, zero value otherwise.
+
+### GetUplimitCourseDescriptionOk
+
+`func (o *UplimitCourseInformationSchema) GetUplimitCourseDescriptionOk() (*string, bool)`
+
+GetUplimitCourseDescriptionOk returns a tuple with the UplimitCourseDescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUplimitCourseDescription
+
+`func (o *UplimitCourseInformationSchema) SetUplimitCourseDescription(v string)`
+
+SetUplimitCourseDescription sets UplimitCourseDescription field to given value.
 
 
 ### GetName

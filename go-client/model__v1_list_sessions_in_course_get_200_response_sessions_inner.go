@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-08-11
+API version: 2025-08-18
 Contact: hello@uplimit.com
 */
 
@@ -29,6 +29,8 @@ type V1ListSessionsInCourseGet200ResponseSessionsInner struct {
 	Name string `json:"name"`
 	// The start date of the session.
 	StartsAt time.Time `json:"startsAt"`
+	// The end date of the session.
+	EndsAt time.Time `json:"endsAt"`
 	// Whether the session allows enrollments
 	EnrollmentEnabled bool `json:"enrollmentEnabled"`
 }
@@ -39,11 +41,12 @@ type _V1ListSessionsInCourseGet200ResponseSessionsInner V1ListSessionsInCourseGe
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV1ListSessionsInCourseGet200ResponseSessionsInner(uplimitSessionId string, name string, startsAt time.Time, enrollmentEnabled bool) *V1ListSessionsInCourseGet200ResponseSessionsInner {
+func NewV1ListSessionsInCourseGet200ResponseSessionsInner(uplimitSessionId string, name string, startsAt time.Time, endsAt time.Time, enrollmentEnabled bool) *V1ListSessionsInCourseGet200ResponseSessionsInner {
 	this := V1ListSessionsInCourseGet200ResponseSessionsInner{}
 	this.UplimitSessionId = uplimitSessionId
 	this.Name = name
 	this.StartsAt = startsAt
+	this.EndsAt = endsAt
 	this.EnrollmentEnabled = enrollmentEnabled
 	return &this
 }
@@ -128,6 +131,30 @@ func (o *V1ListSessionsInCourseGet200ResponseSessionsInner) SetStartsAt(v time.T
 	o.StartsAt = v
 }
 
+// GetEndsAt returns the EndsAt field value
+func (o *V1ListSessionsInCourseGet200ResponseSessionsInner) GetEndsAt() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.EndsAt
+}
+
+// GetEndsAtOk returns a tuple with the EndsAt field value
+// and a boolean to check if the value has been set.
+func (o *V1ListSessionsInCourseGet200ResponseSessionsInner) GetEndsAtOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EndsAt, true
+}
+
+// SetEndsAt sets field value
+func (o *V1ListSessionsInCourseGet200ResponseSessionsInner) SetEndsAt(v time.Time) {
+	o.EndsAt = v
+}
+
 // GetEnrollmentEnabled returns the EnrollmentEnabled field value
 func (o *V1ListSessionsInCourseGet200ResponseSessionsInner) GetEnrollmentEnabled() bool {
 	if o == nil {
@@ -165,6 +192,7 @@ func (o V1ListSessionsInCourseGet200ResponseSessionsInner) ToMap() (map[string]i
 	toSerialize["uplimitSessionId"] = o.UplimitSessionId
 	toSerialize["name"] = o.Name
 	toSerialize["startsAt"] = o.StartsAt
+	toSerialize["endsAt"] = o.EndsAt
 	toSerialize["enrollmentEnabled"] = o.EnrollmentEnabled
 	return toSerialize, nil
 }
@@ -177,6 +205,7 @@ func (o *V1ListSessionsInCourseGet200ResponseSessionsInner) UnmarshalJSON(data [
 		"uplimitSessionId",
 		"name",
 		"startsAt",
+		"endsAt",
 		"enrollmentEnabled",
 	}
 

@@ -3,7 +3,7 @@ Uplimit Organization API
 
 This API is used to manage organizations within the Uplimit platform. For more information, please reach out to your Uplimit Enterprise contact.
 
-API version: 2025-08-11
+API version: 2025-08-18
 Contact: hello@uplimit.com
 */
 
@@ -26,6 +26,8 @@ type UplimitCourseInformationSchema struct {
 	UplimitCourseId string `json:"uplimitCourseId"`
 	// The slug (i.e. short name) of the course across the Uplimit platform.
 	UplimitCourseSlug string `json:"uplimitCourseSlug"`
+	// The description of the course (may be empty).
+	UplimitCourseDescription string `json:"uplimitCourseDescription"`
 	// The name of the course.
 	Name string `json:"name"`
 }
@@ -36,10 +38,11 @@ type _UplimitCourseInformationSchema UplimitCourseInformationSchema
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUplimitCourseInformationSchema(uplimitCourseId string, uplimitCourseSlug string, name string) *UplimitCourseInformationSchema {
+func NewUplimitCourseInformationSchema(uplimitCourseId string, uplimitCourseSlug string, uplimitCourseDescription string, name string) *UplimitCourseInformationSchema {
 	this := UplimitCourseInformationSchema{}
 	this.UplimitCourseId = uplimitCourseId
 	this.UplimitCourseSlug = uplimitCourseSlug
+	this.UplimitCourseDescription = uplimitCourseDescription
 	this.Name = name
 	return &this
 }
@@ -100,6 +103,30 @@ func (o *UplimitCourseInformationSchema) SetUplimitCourseSlug(v string) {
 	o.UplimitCourseSlug = v
 }
 
+// GetUplimitCourseDescription returns the UplimitCourseDescription field value
+func (o *UplimitCourseInformationSchema) GetUplimitCourseDescription() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UplimitCourseDescription
+}
+
+// GetUplimitCourseDescriptionOk returns a tuple with the UplimitCourseDescription field value
+// and a boolean to check if the value has been set.
+func (o *UplimitCourseInformationSchema) GetUplimitCourseDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UplimitCourseDescription, true
+}
+
+// SetUplimitCourseDescription sets field value
+func (o *UplimitCourseInformationSchema) SetUplimitCourseDescription(v string) {
+	o.UplimitCourseDescription = v
+}
+
 // GetName returns the Name field value
 func (o *UplimitCourseInformationSchema) GetName() string {
 	if o == nil {
@@ -136,6 +163,7 @@ func (o UplimitCourseInformationSchema) ToMap() (map[string]interface{}, error) 
 	toSerialize := map[string]interface{}{}
 	toSerialize["uplimitCourseId"] = o.UplimitCourseId
 	toSerialize["uplimitCourseSlug"] = o.UplimitCourseSlug
+	toSerialize["uplimitCourseDescription"] = o.UplimitCourseDescription
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
 }
@@ -147,6 +175,7 @@ func (o *UplimitCourseInformationSchema) UnmarshalJSON(data []byte) (err error) 
 	requiredProperties := []string{
 		"uplimitCourseId",
 		"uplimitCourseSlug",
+		"uplimitCourseDescription",
 		"name",
 	}
 

@@ -14,12 +14,13 @@ Name | Type | Description | Notes
 **UplimitActiveSubscriptionCommitmentIds** | **[]string** | All the active subscription commitment ids for this user within this organization. | 
 **UplimitUserId** | **string** | Internal ID to identify the user across the Uplimit platform. | 
 **SessionCompletionStatus** | **string** | Whether the user has completed the session according to pre-defined completion criteria. | 
+**UplimitSessionEnrollmentId** | **string** | The uplimit internal ID for the user enrollment in session. | 
 
 ## Methods
 
 ### NewV1ListEnrollmentsInSessionGet200ResponseUsersInner
 
-`func NewV1ListEnrollmentsInSessionGet200ResponseUsersInner(emailAddress string, firstName string, lastName string, userAccountIsActive bool, userHasValidSubscriptionEnrollment bool, uplimitSubscriptionEnrollmentId string, uplimitSubscriptionCommitmentId string, uplimitActiveSubscriptionCommitmentIds []string, uplimitUserId string, sessionCompletionStatus string, ) *V1ListEnrollmentsInSessionGet200ResponseUsersInner`
+`func NewV1ListEnrollmentsInSessionGet200ResponseUsersInner(emailAddress string, firstName string, lastName string, userAccountIsActive bool, userHasValidSubscriptionEnrollment bool, uplimitSubscriptionEnrollmentId string, uplimitSubscriptionCommitmentId string, uplimitActiveSubscriptionCommitmentIds []string, uplimitUserId string, sessionCompletionStatus string, uplimitSessionEnrollmentId string, ) *V1ListEnrollmentsInSessionGet200ResponseUsersInner`
 
 NewV1ListEnrollmentsInSessionGet200ResponseUsersInner instantiates a new V1ListEnrollmentsInSessionGet200ResponseUsersInner object
 This constructor will assign default values to properties that have it defined,
@@ -232,6 +233,26 @@ and a boolean to check if the value has been set.
 `func (o *V1ListEnrollmentsInSessionGet200ResponseUsersInner) SetSessionCompletionStatus(v string)`
 
 SetSessionCompletionStatus sets SessionCompletionStatus field to given value.
+
+
+### GetUplimitSessionEnrollmentId
+
+`func (o *V1ListEnrollmentsInSessionGet200ResponseUsersInner) GetUplimitSessionEnrollmentId() string`
+
+GetUplimitSessionEnrollmentId returns the UplimitSessionEnrollmentId field if non-nil, zero value otherwise.
+
+### GetUplimitSessionEnrollmentIdOk
+
+`func (o *V1ListEnrollmentsInSessionGet200ResponseUsersInner) GetUplimitSessionEnrollmentIdOk() (*string, bool)`
+
+GetUplimitSessionEnrollmentIdOk returns a tuple with the UplimitSessionEnrollmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUplimitSessionEnrollmentId
+
+`func (o *V1ListEnrollmentsInSessionGet200ResponseUsersInner) SetUplimitSessionEnrollmentId(v string)`
+
+SetUplimitSessionEnrollmentId sets UplimitSessionEnrollmentId field to given value.
 
 
 

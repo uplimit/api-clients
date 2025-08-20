@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uplimit_course_id** | **str** | Internal ID to identify the course across the Uplimit platform. | 
 **uplimit_course_slug** | **str** | The slug (i.e. short name) of the course across the Uplimit platform. | 
+**uplimit_course_description** | **str** | The description of the course (may be empty). | 
 **name** | **str** | The name of the course. | 
 
 ## Example
